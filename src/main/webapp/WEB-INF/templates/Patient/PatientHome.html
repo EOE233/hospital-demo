@@ -18,15 +18,13 @@
 </div>
 <div class="rightdiv">
     <h2>个人信息</h2>
-    <form action="">
-
         <div class="infogroup">
             <label for="username">用户名：</label>
-            <input type="text" id="username" name="username" th:value="${patient.P_id}">
+            <input type="text" id="username" name="username" th:value="${patient.P_id}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="password">密码：</label>
-            <input type="password" id="password" name="password" th:value="${patient.P_pwd}">
+            <input type="password" id="password" name="password" th:value="${patient.P_pwd}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="name">姓名：</label>
@@ -37,9 +35,9 @@
             <input type="text" id="sex" name="sex" th:value="${patient.P_sex}" readonly="readonly">
         </div>
         <div id="btngroup">
-            <a href=""><button class="button">修改个人信息</button></a>
+            <a th:href="@{/PatientUpdate}"><button class="button">修改个人信息</button></a>
+            <a th:href="@{/Login}"><button class="button">返回</button></a>
         </div>
-    </form>
 </div>
 <div class="interview">
     <h2>预约信息</h2>

@@ -61,4 +61,9 @@ public class LoginController {
         }
         return "ERROR";
     }
+
+    @RequestMapping(value = "/Login", method = RequestMethod.GET)
+    public String returnLogin() {
+        return "index";
+    }
 }
