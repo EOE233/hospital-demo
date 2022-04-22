@@ -52,10 +52,10 @@
                 <th>预约医生</th>
                 <th>操作</th>
             </tr>
-            <tr>
-                <td>2022-05-01</td>
-                <td>上午</td>
-                <td>医生姓名1</td>
+            <tr th:each="interview:${interviews}">
+                <td th:text="${interview.I_date}"></td>
+                <td th:text="${interview.I_time}"></td>
+                <td th:text="${interview.D_id}"></td>
                 <td>删除 修改</td>
             </tr>
         </table>

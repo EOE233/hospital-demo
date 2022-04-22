@@ -19,6 +19,7 @@ import java.util.List;
 @Controller
 public class LoginController {
 
+    //定义需要用到的Mapper
     @Autowired
     PatientMapper patientMapperapper;
     @Autowired
@@ -26,19 +27,34 @@ public class LoginController {
     @Autowired
     DoctorMapper doctorMapper;
 
-    @RequestMapping(value = "/Login")
+    /**
+     * 登录验证
+     * @param loginType
+     * @param username
+     * @param password
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public String patientLogin(String loginType, String username, String password, Model model){
+        //判断登录类型
         if ("patient".equals(loginType)) {
+            //患者登录
+            //获取当前登录的患者的信息
             Patient patient = patientMapperapper.getPatientByUsernameAndPassword(username, password);
             if (patient.getP_id() != 0) {
+                //获取当前登录患者的所有预约
+                List<Interview> interviews = interviewMapper.getInterviewByP_id(patient.getP_id());
+                //将当前登录的患者和所有预约的信息传到Request域
+                model.addAttribute("interviews", interviews);
                 model.addAttribute("patient", patient);
-                System.out.println(patient);
-
+                //跳转患者主页
                 return "Patient/PatientHome";
             }else {
                 return "ERROR";
             }
         } else if ("doctor".equals(loginType)) {
+            //医生登录
             Collection<Doctor> doctors = doctorMapper.getAll();
             model.addAttribute("doctors", doctors);
             return "Doctor/DoctorInfo";

@@ -18,6 +18,11 @@ public class DoctorController {
     @Autowired
     DoctorMapper mapper;
 
+    /**
+     * 获取所有医生信息
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/Doctor", method = RequestMethod.GET)
     public String getDoctor(Model model) {
         Collection<Doctor> list = mapper.getAll();
@@ -25,12 +30,23 @@ public class DoctorController {
         return "Doctor/DoctorInfo";
     }
 
+    /**
+     * 删除医生信息
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/Doctor/{id}", method = RequestMethod.DELETE)
     public String deleteDoctor(@PathVariable("id") int id) {
         mapper.deleteDoctor(id);
         return "redirect:/Doctor";
     }
 
+    /**
+     * 跳转到修改医生信息界面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/Doctor/{id}", method = RequestMethod.GET)
     public String toUpdate (@PathVariable("id") int id, Model model) {
         Doctor doctor = mapper.getDoctorById(id);
@@ -38,6 +54,11 @@ public class DoctorController {
         return "Doctor/DoctorUpdate";
     }
 
+    /**
+     * 修改医生信息
+     * @param doctor
+     * @return
+     */
     @RequestMapping(value = "/Doctor", method = RequestMethod.PUT)
     public String updateDoctor (Doctor doctor) {
         mapper.updateDoctor(doctor);
