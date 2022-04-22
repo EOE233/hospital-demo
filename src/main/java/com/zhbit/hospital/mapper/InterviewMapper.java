@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 预约信息
+ */
 @Repository
 public interface InterviewMapper {
 
