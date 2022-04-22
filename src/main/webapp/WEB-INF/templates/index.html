@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{static/css/style_index.css}">
+</head>
+
+<body>
+<div class="shell">
+    <div class="box-left">
+        <h2>Login</h2>
+        <span>Just a login website</span>
+    </div>
+    <div class="box-right">
+        <div class="form">
+            <form th:action="@{/Login}">
+                <label for="username">Username</label>
+                <input type="username" id="username" name="username">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <input type="radio" name="loginType" value="patient" class="loginType">患者登录
+                <input type="radio" name="loginType" value="doctor" class="loginType">医生登录
+                <div id="btngroup">
+                    <input type="button" id="register" value="Register">
+                    <input type="submit" id="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

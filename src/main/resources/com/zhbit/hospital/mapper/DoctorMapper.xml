@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhbit.hospital.mapper.DoctorMapper">
+
+
+    <!-- List<Doctor> getAll(); -->
+    <select id="getAll" resultType="com.zhbit.hospital.bean.Doctor">
+        select *
+        from doctor
+    </select>
+
+    <!-- boolean deleteDoctor(int id); -->
+    <delete id="deleteDoctor">
+        delete
+        from doctor
+        where D_id = #{id}
+    </delete>
+
+    <!-- Doctor getDoctorById(@Param("id") String id); -->
+    <select id="getDoctorById" resultType="com.zhbit.hospital.bean.Doctor">
+        select *
+        from doctor
+        where D_id = #{id}
+    </select>
+
+    <!-- boolean updateDoctor(@Param("doctor") Doctor doctor); -->
+    <update id="updateDoctor">
+        update doctor
+        set D_pwd  = #{doctor.D_pwd},
+            D_name = #{doctor.D_name},
+            D_age  = #{doctor.D_age},
+            D_sex  = #{doctor.D_sex},
+            SUR_id = #{doctor.SUR_id},
+            D_username = #{doctor.D_username}
+        where D_id = #{doctor.D_id}
+    </update>
+
+    <!-- Doctor getDoctorByUsernameAndPassword(@Param("username")String username, @Param("password") String password); -->
+    <select id="getDoctorByUsernameAndPassword" resultType="com.zhbit.hospital.bean.Doctor">
+        select * from doctor where D_username = #{username} and D_pwd = #{password}
+    </select>
+</mapper>
