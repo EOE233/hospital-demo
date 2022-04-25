@@ -2,6 +2,9 @@ package com.zhbit.hospital.bean;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 排班信息
+ */
 @Component
 public class SCH {
 

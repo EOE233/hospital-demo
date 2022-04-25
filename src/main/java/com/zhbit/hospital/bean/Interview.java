@@ -2,6 +2,9 @@ package com.zhbit.hospital.bean;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 预约信息
+ */
 @Component
 public class Interview {
 

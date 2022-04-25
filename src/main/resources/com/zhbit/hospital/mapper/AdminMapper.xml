@@ -40,5 +40,20 @@
         where D_id = #{doctor.D_id}
     </update>
 
-
+    <!-- 管理患者模块 -->
+    <!-- Patient getPatientById (@Param("id") int id); -->
+    <select id="getPatientById" resultType="com.zhbit.hospital.bean.Patient">
+        select *
+        from patient
+        where P_id = #{id}
+    </select>
+    <!-- boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id); -->
+    <update id="updatePatient">
+        update patient
+        set P_username = #{username},
+            P_pwd      = #{password},
+            P_med      = #{med},
+            P_ill      = #{illness}
+        where P_id = #{id}
+    </update>
 </mapper>
