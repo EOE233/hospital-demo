@@ -4,11 +4,41 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhbit.hospital.mapper.AdminMapper">
 
-
+    <!-- Collection<Administrator> getAll(); -->
     <select id="getAll" resultType="com.zhbit.hospital.bean.Administrator">
         select * from administrator
     </select>
+
+    <!-- 登录 -->
+    <!-- Administrator getAdministratorByIdAndPassword(@Param("mId") String mId, @Param("mPwd") String mPwd); -->
     <select id="getAdministratorByIdAndPassword" resultType="com.zhbit.hospital.bean.Administrator">
         select * from administrator where M_id = #{mId} and M_pwd = #{mPwd}
     </select>
+
+    <!-- 管理医生模块 -->
+    <!-- boolean deleteDoctor(int id); -->
+    <delete id="deleteDoctor">
+        delete
+        from doctor
+        where D_id = #{id}
+    </delete>
+    <!-- Doctor getDoctorById(@Param("id") String id); -->
+    <select id="getDoctorById" resultType="com.zhbit.hospital.bean.Doctor">
+        select *
+        from doctor
+        where D_id = #{id}
+    </select>
+    <!-- boolean updateDoctor(@Param("doctor") Doctor doctor); -->
+    <update id="updateDoctor">
+        update doctor
+        set D_pwd      = #{doctor.D_pwd},
+            D_name     = #{doctor.D_name},
+            D_age      = #{doctor.D_age},
+            D_sex      = #{doctor.D_sex},
+            SUR_id     = #{doctor.SUR_id},
+            D_username = #{doctor.D_username}
+        where D_id = #{doctor.D_id}
+    </update>
+
+
 </mapper>

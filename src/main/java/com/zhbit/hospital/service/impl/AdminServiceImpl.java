@@ -1,6 +1,7 @@
 package com.zhbit.hospital.service.impl;
 
 import com.zhbit.hospital.bean.Administrator;
+import com.zhbit.hospital.bean.Doctor;
 import com.zhbit.hospital.mapper.AdminMapper;
 import com.zhbit.hospital.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,21 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Administrator getAdministratorByIdAndPassword(String mId, String mPwd) {
         return adminMapper.getAdministratorByIdAndPassword(mId, mPwd);
+    }
+
+    /**
+     * 医生模块
+     */
+    @Override
+    public boolean deleteDoctor(int id) {
+        return adminMapper.deleteDoctor(id);
+    }
+    @Override
+    public Doctor getDoctorById(int id) {
+        return adminMapper.getDoctorById(id);
+    }
+    @Override
+    public boolean updateDoctor(Doctor doctor) {
+        return adminMapper.updateDoctor(doctor);
     }
 }
