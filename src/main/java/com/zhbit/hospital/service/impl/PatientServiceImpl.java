@@ -19,4 +19,15 @@ public class PatientServiceImpl implements PatientService {
     public Patient getPatientByUsernameAndPassword(String P_username,String P_pwd) {
         return patientMapper.getPatientByUsernameAndPassword(P_username,P_pwd);
     }
+
+    @Override
+    public Patient getPatientById(int id) {
+        return patientMapper.getPatientById(id);
+    }
+
+    @Override
+    public boolean updatePatient(String username, String password, String med, String illness, int id) {
+        return patientMapper.updatePatient(username, password, med, illness, id);
+    }
+
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhbit.hospital.mapper.AdminMapper">
+
+
+    <select id="getAll" resultType="com.zhbit.hospital.bean.Administrator">
+        select * from administrator
+    </select>
+    <select id="getAdministratorByIdAndPassword" resultType="com.zhbit.hospital.bean.Administrator">
+        select * from administrator where M_id = #{mId} and M_pwd = #{mPwd}
+    </select>
+</mapper>

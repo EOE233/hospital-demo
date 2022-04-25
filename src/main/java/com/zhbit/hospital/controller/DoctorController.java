@@ -6,6 +6,9 @@ import com.zhbit.hospital.bean.SCH;
 import com.zhbit.hospital.mapper.DoctorMapper;
 import com.zhbit.hospital.mapper.InterviewMapper;
 import com.zhbit.hospital.mapper.SCHMapper;
+import com.zhbit.hospital.service.DoctorService;
+import com.zhbit.hospital.service.InterviewService;
+import com.zhbit.hospital.service.SCHService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +25,17 @@ public class DoctorController {
     @Autowired
     DoctorMapper doctorMapper;
     @Autowired
+    DoctorService doctorService;
+
+    @Autowired
     InterviewMapper interviewMapper;
     @Autowired
+    InterviewService  interviewService;
+
+    @Autowired
     SCHMapper schMapper;
+    @Autowired
+    SCHService schService;
 
     /**
      * 获取所有医生信息
@@ -34,7 +45,7 @@ public class DoctorController {
      */
     @RequestMapping(value = "/Doctor", method = RequestMethod.GET)
     public String getDoctor(Model model) {
-        Collection<Doctor> list = doctorMapper.getAll();
+        Collection<Doctor> list = doctorService.getAll();
         model.addAttribute("doctors", list);
         return "Doctor/DoctorHome";
     }
@@ -47,7 +58,7 @@ public class DoctorController {
      */
     @RequestMapping(value = "/Doctor/{id}", method = RequestMethod.DELETE)
     public String deleteDoctor(@PathVariable("id") int id) {
-        doctorMapper.deleteDoctor(id);
+        doctorService.deleteDoctor(id);
         return "redirect:/Doctor";
     }
 
@@ -60,7 +71,7 @@ public class DoctorController {
      */
     @RequestMapping(value = "/DoctorUpdate/{id}", method = RequestMethod.GET)
     public String toUpdate(@PathVariable("id") int id, Model model) {
-        Doctor doctor = doctorMapper.getDoctorById(id);
+        Doctor doctor = doctorService.getDoctorById(id);
         model.addAttribute("doctor", doctor);
         return "Doctor/DoctorUpdate";
     }
@@ -73,15 +84,15 @@ public class DoctorController {
      */
     @RequestMapping(value = "/Doctor", method = RequestMethod.PUT)
     public String updateDoctor(Doctor doctor) {
-        doctorMapper.updateDoctor(doctor);
+        doctorService.updateDoctor(doctor);
         int id = doctor.getD_id();
         return "redirect:/Doctor/" + id;
     }
 
     @RequestMapping(value = "/Doctor")
     public String toDoctorHome(String username, String password, Model model) {
-        Doctor doctor = doctorMapper.getDoctorByUsernameAndPassword(username, password);
-        List<Interview> interviews = interviewMapper.getInterviewByD_id(doctor.getD_id());
+        Doctor doctor = doctorService.getDoctorByUsernameAndPassword(username, password);
+        List<Interview> interviews = interviewService.getInterviewByD_id(doctor.getD_id());
         model.addAttribute("interviews", interviews);
         model.addAttribute("doctor", doctor);
         return "Doctor/DoctorHome";
@@ -89,9 +100,9 @@ public class DoctorController {
 
     @RequestMapping(value = "/Doctor/{id}")
     public String updateToDoctorHome(@PathVariable("id") int id, Model model) {
-        Doctor doctor = doctorMapper.getDoctorById(id);
+        Doctor doctor = doctorService.getDoctorById(id);
         System.out.println(doctor);
-        List<SCH> schs = schMapper.getSCHByD_id(doctor.getD_id());
+        List<SCH> schs = schService.getSCHByD_id(doctor.getD_id());
         model.addAttribute("doctor", doctor);
         model.addAttribute("schs", schs);
         return "Doctor/DoctorHome";

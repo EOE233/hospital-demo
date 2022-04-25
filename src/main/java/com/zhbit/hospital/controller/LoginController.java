@@ -1,13 +1,8 @@
 package com.zhbit.hospital.controller;
 
-import com.zhbit.hospital.bean.Doctor;
-import com.zhbit.hospital.bean.Interview;
-import com.zhbit.hospital.bean.Patient;
-import com.zhbit.hospital.bean.SCH;
+import com.zhbit.hospital.bean.*;
 import com.zhbit.hospital.mapper.SCHMapper;
-import com.zhbit.hospital.service.DoctorService;
-import com.zhbit.hospital.service.InterviewService;
-import com.zhbit.hospital.service.PatientService;
+import com.zhbit.hospital.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +23,10 @@ public class LoginController {
     DoctorService doctorService;
     @Autowired
     SCHMapper schMapper;
+    @Autowired
+    SCHService schService;
+    @Autowired
+    AdminService adminService;
 
 
     /**
@@ -41,12 +40,16 @@ public class LoginController {
      */
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public String patientLogin(String loginType, String username, String password, Model model) {
-        //判断登录类型
+        Administrator admin = adminService.getAdministratorByIdAndPassword(username, password);
+        if (admin != null) {
+            return "Admin/DoctorInfo";
+        }
+       //判断登录类型
         if ("patient".equals(loginType)) {
             //患者登录
             //获取当前登录的患者的信息
             Patient patient = patientService.getPatientByUsernameAndPassword(username, password);
-            if (patient.getP_id() != 0) {
+            if (patient != null) {
                 //获取当前登录患者的所有预约
                 List<Interview> interviews = interviewService.getInterviewByP_id(patient.getP_id());
                 //将当前登录的患者和所有预约的信息传到Request域
@@ -61,12 +64,16 @@ public class LoginController {
             //医生登录
             //获取医生对象和预约该医生的所用预约信息
             Doctor doctor = doctorService.getDoctorByUsernameAndPassword(username, password);
-            List<SCH> schs = schMapper.getSCHByD_id(doctor.getD_id());
-            //将数据共享到Request域
-            model.addAttribute("doctor", doctor);
-            model.addAttribute("schs", schs);
-            //跳转到医生主页
-            return "Doctor/DoctorHome";
+            List<SCH> schs = schService.getSCHByD_id(doctor.getD_id());
+            if (doctor != null) {
+                //List<SCH> schs = schMapper.getSCHByD_id(doctor.getD_id());
+                //将数据共享到Request域
+                model.addAttribute("doctor", doctor);
+                model.addAttribute("schs", schs);
+                //跳转到医生主页
+                return "Doctor/DoctorHome";
+            }
+
         }
         return "ERROR";
     }

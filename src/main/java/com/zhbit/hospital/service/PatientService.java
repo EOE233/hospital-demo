@@ -13,4 +13,9 @@ public interface PatientService {
      * @return
      */
     Patient getPatientByUsernameAndPassword(String P_username,String P_pwd);
+
+    Patient getPatientById(int id);
+
+    boolean updatePatient(String username, String password, String med, String illness, int id);
+
 }
