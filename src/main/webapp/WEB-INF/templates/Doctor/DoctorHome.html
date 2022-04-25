@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>患者主页</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientHome.css}">
+</head>
+<body>
+<div class="leftdiv">
+    <h1>医生主页</h1>
+    <p>展示医生的基本信息</p>
+    <p>医生的基本操作</p>
+</div>
+<div class="rightdiv">
+    <h2>个人信息</h2>
+    <div class="infogroup">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username" th:value="${doctor.D_username}" readonly="readonly">
+    </div>
+    <div class="infogroup">
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" th:value="${doctor.D_pwd}" readonly="readonly">
+    </div>
+    <div class="infogroup">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" th:value="${doctor.D_name}" readonly="readonly">
+    </div>
+    <div class="infogroup">
+        <label for="sex">所属诊室：</label>
+        <input type="text" id="sex" name="sex" th:value="${doctor.SUR_id}" readonly="readonly">
+    </div>
+    <div id="btngroup">
+        <a th:href="@{'/DoctorUpdate/'+${doctor.D_id}}"><button class="button">修改个人信息</button></a>
+        <a th:href="@{/Login}"><button class="button">返回</button></a>
+    </div>
+</div>
+<div class="interview">
+    <h2>排班信息</h2>
+    <div class="interviewgroup">
+        <table class="table">
+            <tr>
+                <th>排班日期</th>
+                <th>排班时间</th>
+                <th>预约上限</th>
+                <th>预约人数</th>
+            </tr>
+            <tr th:each="sch:${schs}">
+                <td th:text="${sch.SCH_date}"></td>
+                <td th:text="${sch.SCH_time}"></td>
+                <td th:text="${sch.SCH_size}"></td>
+                <td th:text="${sch.SCH_booked}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

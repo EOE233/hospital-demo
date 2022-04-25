@@ -6,7 +6,16 @@
 
     <!-- List<Interview> getInterviewByP_id (int id); -->
     <select id="getInterviewByP_id" resultType="com.zhbit.hospital.bean.Interview">
-        select * from interview where P_id = #{P_id}
+        select *
+        from interview
+        where P_id = #{P_id}
+    </select>
+
+    <!-- List<Interview> getInterviewByD_id (@Param("D_id") int id); -->
+    <select id="getInterviewByD_id" resultType="com.zhbit.hospital.bean.Interview">
+        select *
+        from interview
+        where D_id = #{D_id}
     </select>
 
 </mapper>

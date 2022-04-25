@@ -3,20 +3,17 @@ package com.zhbit.hospital.controller;
 import com.zhbit.hospital.bean.Doctor;
 import com.zhbit.hospital.bean.Interview;
 import com.zhbit.hospital.bean.Patient;
-import com.zhbit.hospital.mapper.DoctorMapper;
-import com.zhbit.hospital.mapper.InterviewMapper;
-import com.zhbit.hospital.mapper.PatientMapper;
+import com.zhbit.hospital.bean.SCH;
+import com.zhbit.hospital.mapper.SCHMapper;
 import com.zhbit.hospital.service.DoctorService;
 import com.zhbit.hospital.service.InterviewService;
 import com.zhbit.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -29,10 +26,13 @@ public class LoginController {
     InterviewService interviewService;
     @Autowired
     DoctorService doctorService;
+    @Autowired
+    SCHMapper schMapper;
 
 
     /**
      * 登录验证
+     *
      * @param loginType
      * @param username
      * @param password
@@ -40,7 +40,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
-    public String patientLogin(String loginType, String username, String password, Model model){
+    public String patientLogin(String loginType, String username, String password, Model model) {
         //判断登录类型
         if ("patient".equals(loginType)) {
             //患者登录
@@ -54,14 +54,19 @@ public class LoginController {
                 model.addAttribute("patient", patient);
                 //跳转患者主页
                 return "Patient/PatientHome";
-            }else {
+            } else {
                 return "ERROR";
             }
         } else if ("doctor".equals(loginType)) {
             //医生登录
-            Collection<Doctor> doctors = doctorService.getAll();
-            model.addAttribute("doctors", doctors);
-            return "Doctor/DoctorInfo";
+            //获取医生对象和预约该医生的所用预约信息
+            Doctor doctor = doctorService.getDoctorByUsernameAndPassword(username, password);
+            List<SCH> schs = schMapper.getSCHByD_id(doctor.getD_id());
+            //将数据共享到Request域
+            model.addAttribute("doctor", doctor);
+            model.addAttribute("schs", schs);
+            //跳转到医生主页
+            return "Doctor/DoctorHome";
         }
         return "ERROR";
     }
@@ -70,4 +75,6 @@ public class LoginController {
     public String returnLogin() {
         return "index";
     }
+
+
 }

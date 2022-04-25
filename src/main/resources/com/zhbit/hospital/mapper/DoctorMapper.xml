@@ -28,17 +28,24 @@
     <!-- boolean updateDoctor(@Param("doctor") Doctor doctor); -->
     <update id="updateDoctor">
         update doctor
-        set D_pwd  = #{doctor.D_pwd},
-            D_name = #{doctor.D_name},
-            D_age  = #{doctor.D_age},
-            D_sex  = #{doctor.D_sex},
-            SUR_id = #{doctor.SUR_id},
+        set D_pwd      = #{doctor.D_pwd},
+            D_name     = #{doctor.D_name},
+            D_age      = #{doctor.D_age},
+            D_sex      = #{doctor.D_sex},
+            SUR_id     = #{doctor.SUR_id},
             D_username = #{doctor.D_username}
         where D_id = #{doctor.D_id}
     </update>
 
     <!-- Doctor getDoctorByUsernameAndPassword(@Param("username")String username, @Param("password") String password); -->
     <select id="getDoctorByUsernameAndPassword" resultType="com.zhbit.hospital.bean.Doctor">
-        select * from doctor where D_username = #{username} and D_pwd = #{password}
+        select *
+        from doctor
+        where D_username = #{username}
+          and D_pwd = #{password}
     </select>
+
+
+
+
 </mapper>

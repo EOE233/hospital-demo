@@ -14,4 +14,6 @@ public interface InterviewMapper {
 
     List<Interview> getInterviewByP_id (@Param("P_id") int id);
 
+    List<Interview> getInterviewByD_id (@Param("D_id") int id);
+
 }

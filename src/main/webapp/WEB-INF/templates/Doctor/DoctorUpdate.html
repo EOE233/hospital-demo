@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>修改患者信息</title>
+  <link rel="stylesheet" th:href="@{/static/css/Doctor/style_DoctorUpdate.css}">
 </head>
+
 <body>
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-<form th:action="@{/Doctor}" method="post">
-    <input type="hidden" name="D_id" th:value="${doctor.D_id}">
+<div class="rightdiv">
+  <h2>修改个人信息</h2>
+  <form th:action="@{/Doctor}" method="post">
     <input type="hidden" name="_method" value="put">
-    <div class="form-group">
-        <label>医生用户名：</label>
-        <input type="text" name="D_username" th:value="${doctor.D_username}">
+    <input type="hidden" name="D_id" th:value="${doctor.D_id}">
+    <input type="hidden" name="D_age" th:value="${doctor.D_age}">
+    <input type="hidden" name="D_sex" th:value="${doctor.D_sex}">
+    <div class="infogroup">
+      <label for="username">用户名：</label>
+      <input type="text" name="D_username" id="username" th:value="${doctor.D_username}">
     </div>
-    <div class="form-group">
-        <label>医生密码：</label>
-        <input type="text" name="D_pwd" th:value="${doctor.D_pwd}">
+    <div class="infogroup">
+      <label for="password">密码：</label>
+      <input type="password" name="D_pwd" id="password" th:value="${doctor.D_pwd}">
     </div>
-    <div class="form-group">
-        <label>医生姓名：</label>
-        <input type="text" name="D_name" th:value="${doctor.D_name}">
+    <div class="infogroup">
+      <label for="name">医生姓名：</label>
+      <input type="text" name="D_name" id="name" th:value="${doctor.D_name}">
     </div>
-    <div class="form-group">
-        <label>医生年龄：</label>
-    <input type="text" name="D_age" th:value="${doctor.D_age}">
+    <div class="infogroup">
+      <label for="sur">所属诊室：</label>
+      <input type="text" name="SUR_id" id="sur" th:value="${doctor.SUR_id}">
     </div>
-    <div class="form-group">
-        <label>医生性别：</label>
-    <input type="text" name="D_sex" th:value="${doctor.D_sex}"><br>
+    <div class="btngroup">
+      <button type="submit" class="button" name="submit">修改</button>
+      <a th:href="@{'/DoctorHome/'+${doctor.D_id}}">
+        <button class="button" type="button">返回</button>
+      </a>
     </div>
-    <div class="form-group">
-        <label>所属诊室：</label>
-    <input type="text" name="SUR_id" th:value="${doctor.SUR_id}"><br>
-    </div>
-    <button type="submit" class="btn btn-primary">修改</button>
-</form>
+  </form>
+</div>
 </body>
+
 </html>

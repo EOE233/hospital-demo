@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>修改患者信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientUpdate.css}">
 </head>
-<body>
 
+<body>
+<div class="rightdiv">
+    <h2>修改个人信息</h2>
+    <form th:action="@{/Patient}" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="id" th:value="${patient.P_id}">
+        <div class="infogroup">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" id="username" th:value="${patient.P_username}">
+        </div>
+        <div class="infogroup">
+            <label for="password">密码：</label>
+            <input type="password" name="password" id="password" th:value="${patient.P_pwd}">
+        </div>
+        <div class="infogroup">
+            <label for="med">过敏药物：</label>
+            <input type="text" name="med" id="med" th:value="${patient.P_med}">
+        </div>
+        <div class="infogroup">
+            <label for="illness">既往病史：</label>
+            <input type="text" name="illness" id="illness" th:value="${patient.P_ill}">
+        </div>
+        <div class="btngroup">
+            <button type="submit" class="button" name="submit">修改</button>
+            <a th:href="@{'/PatientHome/'+${patient.P_id}}">
+                <button class="button" type="button">返回</button>
+            </a>
+        </div>
+    </form>
+</div>
 </body>
+
 </html>

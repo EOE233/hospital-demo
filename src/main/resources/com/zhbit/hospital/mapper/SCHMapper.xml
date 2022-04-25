@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhbit.hospital.mapper.SCHMapper">
+
+    <!-- List<SCH> getSCHByD_id (@Param("id") int id); -->
+    <select id="getSCHByD_id" resultType="com.zhbit.hospital.bean.SCH">
+        select *
+        from SCH
+        where D_id = #{id}
+    </select>
+
+</mapper>

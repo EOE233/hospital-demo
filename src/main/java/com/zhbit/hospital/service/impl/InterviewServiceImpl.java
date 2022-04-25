@@ -20,4 +20,9 @@ public class InterviewServiceImpl implements InterviewService {
     public List<Interview> getInterviewByP_id(int id) {
         return interviewMapper.getInterviewByP_id(id);
     }
+
+    @Override
+    public List<Interview> getInterviewByD_id(int id) {
+        return interviewMapper.getInterviewByD_id(id);
+    }
 }
