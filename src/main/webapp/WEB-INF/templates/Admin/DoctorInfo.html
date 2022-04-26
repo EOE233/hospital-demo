@@ -5,56 +5,38 @@
     <title>医生信息管理</title>
 </head>
 <body>
+
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<table id="dataTable" class="table table-hover">
-    <tr>
-        <th>username</th>
-        <th>password</th>
-        <th>name</th>
-        <th>age</th>
-        <th>gender</th>
-        <th>surid</th>
-        <th>Option</th>
-    </tr>
-    <tr th:each="doctor : ${doctors}">
-        <td th:text="${doctor.D_id}"></td>
-        <td th:text="${doctor.D_pwd}"></td>
-        <td th:text="${doctor.D_name}"></td>
-        <td th:text="${doctor.D_age}"></td>
-        <td th:text="${doctor.D_sex}"></td>
-        <td th:text="${doctor.SUR_id}"></td>
-        <td>
-            <a @click="deleteDoctor" th:href="@{'/Doctor/'+${doctor.D_id}}" class="btn btn-primary btn-lg active">delete</a>
-            <a th:href="@{'/Doctor/'+${doctor.D_id}}" class="btn btn-default btn-lg active">update</a>
-        </td>
-    </tr>
-</table>
-
-<form id="deleteForm" method="post">
-    <input type="hidden" name="_method" value="delete">
-</form>
-<script type="text/javascript" th:src="@{static/js/vue.js}"></script>
-<script type="text/javascript">
-    var vue = new Vue({
-        el:"#dataTable",
-        methods:{
-            deleteDoctor:function (event) {
-                //根据id获取表单元素
-                var deleteForm = document.getElementById("deleteForm");
-                //将触发点击事件的超链接的href属性赋值给表单的action
-                deleteForm.action = event.target.href;
-                //提交表单
-                deleteForm.submit();
-                //取消超链接的默认行为
-                event.preventDefault();
-            }
-        }
-    });
-</script>
-
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_AdminInfo.css}">
+<div class="rightdiv">
+    <h2>医生信息管理</h2>
+    <div class="shell">
+        <table class="table">
+            <tr>
+                <th>医生用户名</th>
+                <th>医生密码</th>
+                <th>医生姓名</th>
+                <th>医生年龄</th>
+                <th>医生性别</th>
+                <th>所属诊室</th>
+                <th colspan="2">操作</th>
+            </tr>
+            <tr>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>删除</td>
+                <td>修改</td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>
