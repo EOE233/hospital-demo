@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link rel="stylesheet" th:href="@{/static/css/Admin/style_AdminHome.css}">
+</head>
+
+<body>
+<div class="leftdiv">
+    <h1>管理员主页</h1>
+    <p>管理数据库内容</p>
+    <p></p>
+</div>
+<div class="rightdiv">
+    <table>
+        <tr>
+            <td>
+                <a th:href="@{'/AdminDoctor/'+${admin.M_id}}">
+                    <button class="admingroup">医生模块</button>
+                </a>
+            </td>
+            <td>
+                <a href="">
+                    <button class="admingroup">患者模块</button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">
+                    <button class="admingroup">预约模块</button>
+                </a>
+            </td>
+            <td>
+                <a href="">
+                    <button class="admingroup">排班模块</button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">
+                    <button class="admingroup">诊室模块</button>
+                </a>
+            </td>
+            <td>
+                <a href="">
+                    <button class="admingroup">科室模块</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="info">
+    <h2>个人信息</h2>
+    <form th:action="@{/AdminUpdate}">
+        <div class="infogroup">
+            <label for="username">用户名：</label>
+            <input type="text" id="username" name="M_id" th:value="${admin.M_id}" readonly="readonly">
+        </div>
+        <div class="infogroup">
+            <label for="password">用户名：</label>
+            <input type="password" id="password" name="M_pwd" th:value="${admin.M_pwd}" readonly="readonly">
+        </div>
+        <div id="btngroup">
+            <button class="button" type="submit">修改个人信息</button>
+            <a th:href="@{/Login}">
+                <button class="button" type="button">返回</button>
+            </a>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

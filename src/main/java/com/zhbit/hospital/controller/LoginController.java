@@ -40,11 +40,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public String patientLogin(String loginType, String username, String password, Model model) {
-        Administrator admin = adminService.getAdministratorByIdAndPassword(username, password);
-        if (admin != null) {
-            return "Admin/DoctorInfo";
-        }
-       //判断登录类型
+        //判断登录类型
         if ("patient".equals(loginType)) {
             //患者登录
             //获取当前登录的患者的信息
@@ -58,7 +54,7 @@ public class LoginController {
                 //跳转患者主页
                 return "Patient/PatientHome";
             } else {
-                return "ERROR";
+                return "index";
             }
         } else if ("doctor".equals(loginType)) {
             //医生登录
@@ -74,8 +70,14 @@ public class LoginController {
                 return "Doctor/DoctorHome";
             }
 
+        } else {
+            Administrator admin = adminService.getAdministratorByIdAndPassword(username, password);
+            if (admin != null) {
+                model.addAttribute("admin", admin);
+                return "Admin/AdminHome";
+            }
         }
-        return "ERROR";
+        return "index";
     }
 
     @RequestMapping(value = "/Login", method = RequestMethod.GET)

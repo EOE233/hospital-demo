@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #bdbef8, #b9a3fd);
+}
+
+.leftdiv {
+    background-color: #fff;
+    height: 280px;
+    top: 20px;
+    position: relative;
+    width: 220px;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+}
+
+.leftdiv h1 {
+    margin-top: 30px;
+}
+
+.leftdiv p {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.rightdiv {
+    background-color: #474a59;
+    height: 450px;
+    box-shadow: 0 0 40px 16px rgba(0, 0, 0, .2);
+    color: #f1f1f2;
+    width: 400px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+label {
+    color: #c2c2c5;
+    display: block;
+    font-size: 14px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+label::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    height: 3px;
+    background-image: linear-gradient(to right, #44ffff, #b888ff);
+}
+
+.info {
+    width: 300px;
+    background-color: rgba(99, 97, 97, 0.603);
+    height: 300px;
+    border-radius: 0 10px 10px 0;
+}
+
+.info h2{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+input {
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+    font-style: 20px;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+    outline: none !important;
+}
+
+.infogroup {
+    margin-left: 40px;
+}
+
+.button {
+    outline: none;
+    border: 0;
+    color: #fff;
+    margin-top: 40px;
+    width: 120px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.button:hover {
+    letter-spacing: 2px;
+    color: #000;
+    background-color: rgba(173, 172, 172, 0.349);
+}
+
+#btngroup {
+    display: flex;
+    justify-content: space-around;
+}
+
+.admingroup {
+    outline: none;
+    border: 0;
+    font-size: 25px;
+    font-weight: 1000;
+    color: #c2c2c5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 35px;
+    margin-left: 30px;
+    width: 150px;
+    height: 100px;
+    background-color: #9ca1a04b;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.admingroup:hover {
+    letter-spacing: 5px;
+    box-shadow:0 0 20px rgb(146, 135, 135);
+}
+
+a {
+    text-decoration: none;
+}

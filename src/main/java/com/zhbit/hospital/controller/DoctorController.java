@@ -92,8 +92,8 @@ public class DoctorController {
     @RequestMapping(value = "/Doctor")
     public String toDoctorHome(String username, String password, Model model) {
         Doctor doctor = doctorService.getDoctorByUsernameAndPassword(username, password);
-        List<Interview> interviews = interviewService.getInterviewByD_id(doctor.getD_id());
-        model.addAttribute("interviews", interviews);
+        List<SCH> schs = schService.getSCHByD_id(doctor.getD_id());
+        model.addAttribute("schs", schs);
         model.addAttribute("doctor", doctor);
         return "Doctor/DoctorHome";
     }
@@ -106,7 +106,15 @@ public class DoctorController {
         model.addAttribute("doctor", doctor);
         model.addAttribute("schs", schs);
         return "Doctor/DoctorHome";
+    }
 
+    @RequestMapping("/DoctorHome/{id}")
+    public String updateToHome(@PathVariable("id") int id, Model model) {
+        Doctor doctor = doctorService.getDoctorById(id);
+        List<SCH> schs = schService.getSCHByD_id(doctor.getD_id());
+        model.addAttribute("doctor", doctor);
+        model.addAttribute("schs", schs);
+        return "Doctor/DoctorHome";
     }
 
 

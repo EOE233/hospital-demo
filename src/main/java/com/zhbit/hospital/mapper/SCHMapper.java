@@ -11,4 +11,6 @@ public interface SCHMapper {
 
     List<SCH> getSCHByD_id (@Param("id") int id);
 
+
+
 }

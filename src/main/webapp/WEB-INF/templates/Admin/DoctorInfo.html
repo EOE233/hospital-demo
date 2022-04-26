@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Info</title>
+    <title>医生信息管理</title>
 </head>
 <body>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
@@ -20,7 +20,7 @@
         <th>surid</th>
         <th>Option</th>
     </tr>
-    <tr th:each="doctor,eee : ${doctors}">
+    <tr th:each="doctor : ${doctors}">
         <td th:text="${doctor.D_id}"></td>
         <td th:text="${doctor.D_pwd}"></td>
         <td th:text="${doctor.D_name}"></td>

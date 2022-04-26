@@ -6,13 +6,17 @@
 
     <!-- Collection<Administrator> getAll(); -->
     <select id="getAll" resultType="com.zhbit.hospital.bean.Administrator">
-        select * from administrator
+        select *
+        from administrator
     </select>
 
     <!-- 登录 -->
     <!-- Administrator getAdministratorByIdAndPassword(@Param("mId") String mId, @Param("mPwd") String mPwd); -->
     <select id="getAdministratorByIdAndPassword" resultType="com.zhbit.hospital.bean.Administrator">
-        select * from administrator where M_id = #{mId} and M_pwd = #{mPwd}
+        select *
+        from administrator
+        where M_id = #{mId}
+          and M_pwd = #{mPwd}
     </select>
 
     <!-- 管理医生模块 -->
@@ -22,12 +26,14 @@
         from doctor
         where D_id = #{id}
     </delete>
+
     <!-- Doctor getDoctorById(@Param("id") String id); -->
     <select id="getDoctorById" resultType="com.zhbit.hospital.bean.Doctor">
         select *
         from doctor
         where D_id = #{id}
     </select>
+
     <!-- boolean updateDoctor(@Param("doctor") Doctor doctor); -->
     <update id="updateDoctor">
         update doctor
@@ -47,6 +53,7 @@
         from patient
         where P_id = #{id}
     </select>
+
     <!-- boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id); -->
     <update id="updatePatient">
         update patient
@@ -56,4 +63,19 @@
             P_ill      = #{illness}
         where P_id = #{id}
     </update>
+
+    <!-- boolean updateAdmin(@Param("id") String id, @Param("password") String password); -->
+    <update id="updateAdmin">
+        update administrator
+        set M_pwd = #{password}
+        where M_id = #{id}
+    </update>
+
+    <!-- Administrator getAdminById(@Param("id") String id); -->
+    <select id="getAdminById" resultType="com.zhbit.hospital.bean.Administrator">
+        select *
+        from administrator
+        where M_id = #{id}
+    </select>
+
 </mapper>

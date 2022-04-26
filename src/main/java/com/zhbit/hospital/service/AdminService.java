@@ -30,4 +30,14 @@ public interface AdminService {
      */
     Patient getPatientById(int id);
     boolean updatePatient(String username, String password, String med, String illness, int id);
+
+    /**
+     * 修改管理员信息
+     */
+    boolean updateAdmin(String username, String password);
+
+    /**
+     * 通过id获取管理员信息
+     */
+    Administrator getAdminById(String id);
 }

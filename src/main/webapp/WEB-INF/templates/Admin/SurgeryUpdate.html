@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>诊室信息管理</title>
+</head>
+<body>
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css">
+<div class="rightdiv">
+  <h2>诊室信息管理</h2>
+  <table>
+    <form>
+      <div class="infogroup">
+        <label for="sur_id">诊室id</label>
+        <input type="text" name="SUR_id" id="sur_id">
+      </div>
+      <div class="infogroup">
+        <label for="o_id">所属科室id</label>
+        <input type="text" name="O_id" id="o_id">
+      </div>
+      <div class="infogroup">
+        <label for="sur_site">诊室地址</label>
+        <input type="text" name="SUR_site" id="sur_site">
+      </div>
+      <div class="infogroup">
+        <label for="sur_mana">诊室负责人</label>
+        <input type="text" name="SUR_mana" id="sur_mana">
+      </div>
+      <div class="btngroup">
+        <input type="submit" value="修改" class="button">
+        <a href="#">
+          <button type="button" class="button">返回</button>
+        </a>
+      </div>
+    </form>
+  </table>
+</div>
+</body>
+</html>

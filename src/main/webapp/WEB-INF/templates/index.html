@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
-    <link rel="stylesheet" th:href="@{static/css/style_index.css}">
+    <link rel="stylesheet" th:href="@{/static/css/style_index.css}">
 </head>
 
 
@@ -18,13 +18,14 @@
     </div>
     <div class="box-right">
         <div class="form">
-            <form th:action="@{/Login}" method="post">
+            <form th:action="@{/Login}" method="post" name="loginform" onsubmit="return CheckPost();">
                 <label for="username">Username</label>
                 <input type="username" id="username" name="username">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password">
-                <input type="radio" name="loginType" value="patient" class="loginType">患者登录
-                <input type="radio" name="loginType" value="doctor" class="loginType">医生登录
+                <input type="radio" name="loginType" value="patient" class="loginType" checked="checked">患者
+                <input type="radio" name="loginType" value="doctor" class="loginType">医生
+                <input type="radio" name="loginType" value="admin" class="loginType">管理员
                 <div id="btngroup">
                     <input type="button" id="register" value="Register">
                     <input type="submit" id="submit" value="Submit">
@@ -33,7 +34,23 @@
         </div>
     </div>
 </div>
-
+<script>
+    function CheckPost()
+    {
+        if (loginform.username.value=="")
+        {
+            alert("请填写用户名");
+            loginform.username.focus();
+            return false;
+        }
+        if (loginform.password.value=="")
+        {
+            alert("请填写密码");
+            loginform.password.focus();
+            return false;
+        }
+    }
+</script>
 </body>
 
 </html>

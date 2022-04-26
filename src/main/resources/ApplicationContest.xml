@@ -35,7 +35,6 @@
     </bean>
 
     <mvc:view-controller path="/" view-name="index"/>
-    <mvc:view-controller path="/Patient" view-name="Patient/PatientHome" />
 
     <!-- 开放对静态资源的访问 -->
     <mvc:default-servlet-handler />

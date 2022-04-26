@@ -24,6 +24,16 @@ public class AdminServiceImpl implements AdminService {
         return adminMapper.getAdministratorByIdAndPassword(mId, mPwd);
     }
 
+    @Override
+    public Administrator getAdminById(String id) {
+        return adminMapper.getAdminById(id);
+    }
+
+    @Override
+    public boolean updateAdmin(String username, String password) {
+        return adminMapper.updateAdmin(username, password);
+    }
+
     /**
      * 医生模块
      */

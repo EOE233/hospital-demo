@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>患者信息管理</title>
+</head>
+<body>
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css">
+<div class="rightdiv">
+  <h2>患者信息管理</h2>
+  <table>
+    <form>
+      <div class="infogroup">
+        <label for="p_username">患者用户名</label>
+        <input type="text" name="P_username" id="p_username">
+      </div>
+      <div class="infogroup">
+        <label for="p_pwd">患者密码</label>
+        <input type="text" name="P_pwd" id="p_pwd">
+      </div>
+      <div class="infogroup">
+        <label for="p_name">患者姓名</label>
+        <input type="text" name="P_name" id="p_name">
+      </div>
+      <div class="infogroup">
+        <label for="p_sex">患者性别</label>
+        <input type="text" name="P_sex" id="p_sex">
+      </div>
+      <div class="infogroup">
+        <label for="p_age">患者年龄</label>
+        <input type="text" name="P_age" id="p_age">
+      </div>
+      <div class="infogroup">
+        <label for="p_num">患者身份证号</label>
+        <input type="text" name="P_num" id="p_num">
+      </div>
+      <div class="infogroup">
+        <label for="p_med">患者过敏药物</label>
+        <input type="text" name="P_med" id="p_med">
+      </div>
+      <div class="infogroup">
+        <label for="p_ill">患者既往病史</label>
+        <input type="text" name="P_ill" id="p_ill">
+      </div>
+      <div class="btngroup">
+        <input type="submit" value="修改" class="button">
+        <a href="#">
+          <button type="button" class="button">返回</button>
+        </a>
+      </div>
+    </form>
+  </table>
+</div>
+</body>
+</html>

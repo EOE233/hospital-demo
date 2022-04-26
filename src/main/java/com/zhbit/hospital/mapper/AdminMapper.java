@@ -34,4 +34,14 @@ public interface AdminMapper {
      */
     Patient getPatientById(@Param("id") int id);
     boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id);
+
+    /**
+     * 修改管理员信息
+     */
+    boolean updateAdmin(@Param("id") String id, @Param("password") String password);
+
+    /**
+     * 通过id获取管理员信息
+     */
+    Administrator getAdminById(@Param("id") String id);
 }

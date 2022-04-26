@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改管理员信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/Admin/style_AdminUpdate.css}">
+</head>
+<body>
+<div class="rightdiv">
+    <h2>管理员信息修改</h2>
+    <form th:action="@{/Admin}" method="post">
+        <input type="hidden" name="_method" value="put">
+        <div class="infogroup">
+            <label for="username">用户名：</label>
+            <input type="text" name="M_id" id="username" th:value="${admin.M_id}" readonly="readonly">
+        </div>
+        <div class="infogroup">
+            <label for="password">密码：</label>
+            <input type="password" name="M_pwd" id="password" th:value="${admin.M_pwd}">
+        </div>
+        <div class="btngroup">
+            <button type="submit" class="button" name="submit">修改</button>
+            <a th:href="@{'/Admin/'+${admin.M_id}}">
+                <button class="button" type="button">返回</button>
+            </a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
