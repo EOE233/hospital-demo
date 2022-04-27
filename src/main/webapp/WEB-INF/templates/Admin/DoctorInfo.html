@@ -13,7 +13,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <link rel="stylesheet" th:href="@{/static/css/Admin/style_AdminInfo.css}">
 <div class="rightdiv">
-    <h2>医生信息管理</h2>
+    <div class="head">
+        <h2>医生信息管理</h2>
+        <a href="#">
+            <button type="button" class="button">返回</button>
+        </a>
+    </div>
     <div class="shell">
         <table class="table">
             <tr>
@@ -25,17 +30,18 @@
                 <th>所属诊室</th>
                 <th colspan="2">操作</th>
             </tr>
-            <tr>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
+            <tr th:each="doctor : ${doctors}">
+                <td th:text="${doctor.D_username}"></td>
+                <td th:text="${doctor.D_pwd}"></td>
+                <td th:text="${doctor.D_name}"></td>
+                <td th:text="${doctor.D_age}"></td>
+                <td th:text="${doctor.D_sex}"></td>
+                <td th:text="${doctor.SUR_id}"></td>
                 <td>删除</td>
                 <td>修改</td>
             </tr>
         </table>
+
     </div>
 </div>
 </body>

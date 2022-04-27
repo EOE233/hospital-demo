@@ -13,4 +13,6 @@ public interface InterviewService {
     List<Interview> getInterviewByP_id (int id);
 
     List<Interview> getInterviewByD_id (@Param("D_id") int id);
+
+    List<Interview> getAll();
 }

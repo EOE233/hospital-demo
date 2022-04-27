@@ -102,3 +102,12 @@ table {
     width: 4px;
     background-image: linear-gradient(to right, #44ffff, #b888ff);
 }
+
+.head h2 {
+    float: left;
+}
+.head button {
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}

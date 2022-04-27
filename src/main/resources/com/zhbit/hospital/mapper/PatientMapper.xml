@@ -29,4 +29,10 @@
         where P_id = #{id}
     </update>
 
+    <!-- List<Patient> getAll(); -->
+    <select id="getAll" resultType="com.zhbit.hospital.bean.Patient">
+        select *
+        from patient
+    </select>
+
 </mapper>

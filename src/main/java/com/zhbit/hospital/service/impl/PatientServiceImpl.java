@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author lzy
  * 2022/4/22 21:39
@@ -18,6 +20,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public Patient getPatientByUsernameAndPassword(String P_username,String P_pwd) {
         return patientMapper.getPatientByUsernameAndPassword(P_username,P_pwd);
+    }
+
+    @Override
+    public List<Patient> getAll() {
+        return patientMapper.getAll();
     }
 
     @Override

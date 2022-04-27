@@ -1,9 +1,7 @@
 package com.zhbit.hospital.controller;
 
-import com.zhbit.hospital.bean.Administrator;
-import com.zhbit.hospital.bean.Doctor;
-import com.zhbit.hospital.service.AdminService;
-import com.zhbit.hospital.service.DoctorService;
+import com.zhbit.hospital.bean.*;
+import com.zhbit.hospital.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -20,6 +19,21 @@ public class AdminController {
 
     @Autowired
     DoctorService doctorService;
+
+    @Autowired
+    PatientService patientService;
+
+    @Autowired
+    InterviewService interviewService;
+
+    @Autowired
+    SCHService schService;
+
+    @Autowired
+    SurgeryService surgeryService;
+
+    @Autowired
+    OfficeService officeService;
 
     @RequestMapping(value = "/Admin/{id}")
     public String toAdminHome(@PathVariable("id") String id, Model model) {
@@ -41,12 +55,47 @@ public class AdminController {
         return "redirect:/Admin/" + admin.getM_id();
     }
 
-    @RequestMapping(value = "/AdminDoctor/{id}")
-    public String toDoctorInfo(@PathVariable("id") String id, Model model) {
+    @RequestMapping(value = "/AdminDoctor")
+    public String toDoctorInfo(Model model) {
         Collection<Doctor> doctors = doctorService.getAll();
         model.addAttribute("doctors", doctors);
-        model.addAttribute("id", id);
         return "Admin/DoctorInfo";
     }
+
+    @RequestMapping(value = "/AdminOffice")
+    public String toOfficeInfo(Model model) {
+        List<Office> offices = officeService.getAll();
+        model.addAttribute("offices", offices);
+        return "Admin/OfficeInfo";
+    }
+
+    @RequestMapping(value = "/AdminSurgery")
+    public String toSurgeryInfo(Model model) {
+        List<Surgery> surgeries = surgeryService.getAll();
+        model.addAttribute("surgeries", surgeries);
+        return "Admin/SurgeryInfo";
+    }
+
+    @RequestMapping(value = "/AdminInterview")
+    public String toInterviewInfo(Model model) {
+        List<Interview> interviews = interviewService.getAll();
+        model.addAttribute("interviews", interviews);
+        return "Admin/InterviewInfo";
+    }
+
+    @RequestMapping(value = "/AdminSCH")
+    public String toSCHInfo(Model model) {
+        List<SCH> schs = schService.getAll();
+        model.addAttribute("schs", schs);
+        return "Admin/SCHInfo";
+    }
+
+    @RequestMapping(value = "/AdminPatient")
+    public String toPatientInfo(Model model) {
+        List<Patient> patients = patientService.getAll();
+        model.addAttribute("patients", patients);
+        return "Admin/PatientInfo";
+    }
+
 
 }

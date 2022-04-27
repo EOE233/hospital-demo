@@ -11,4 +11,10 @@
         where D_id = #{id}
     </select>
 
+    <!-- List<SCH> getAll(); -->
+    <select id="getAll" resultType="com.zhbit.hospital.bean.SCH">
+        select *
+        from sch
+    </select>
+
 </mapper>

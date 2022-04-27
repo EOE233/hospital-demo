@@ -13,10 +13,10 @@ body {
 
 .rightdiv {
     background-color: #474a59;
-    height: 460px;
+    height: 520px;
     box-shadow: 0 0 40px 16px rgba(0, 0, 0, .2);
     color: #f1f1f2;
-    width: 750px;
+    width: 950px;
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -92,7 +92,7 @@ table {
 
 .shell {
     margin: 0 auto;
-    width: 650px;
+    width: 900px;
     height: 350px;
     overflow: scroll;
     overflow-x: hidden;
@@ -101,4 +101,17 @@ table {
 ::-webkit-scrollbar {
     width: 4px;
     background-image: linear-gradient(to right, #44ffff, #b888ff);
+}
+
+.head {
+    height: 33px;
+}
+
+.head h2 {
+    float: left;
+}
+.head button {
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 20px;
 }

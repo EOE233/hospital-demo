@@ -11,6 +11,12 @@ import java.util.List;
 public class SCHServiceImpl implements SCHService {
     @Autowired
     SCHMapper schMapper;
+
+    @Override
+    public List<SCH> getAll() {
+        return schMapper.getAll();
+    }
+
     @Override
     public List<SCH> getSCHByD_id(int id) {
         return schMapper.getSCHByD_id(id);

@@ -9,4 +9,8 @@ import java.util.List;
 
 public interface SCHService {
     List<SCH> getSCHByD_id (int id);
+
+    List<SCH> getAll();
+
+
 }

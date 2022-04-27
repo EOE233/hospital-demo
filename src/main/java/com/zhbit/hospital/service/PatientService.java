@@ -3,6 +3,8 @@ package com.zhbit.hospital.service;
 import com.zhbit.hospital.bean.Patient;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author lzy
  * 2022/4/22 21:38
@@ -17,5 +19,8 @@ public interface PatientService {
     Patient getPatientById(int id);
 
     boolean updatePatient(String username, String password, String med, String illness, int id);
+
+    List<Patient> getAll();
+
 
 }
