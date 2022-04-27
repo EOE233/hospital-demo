@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员主页</title>
-    <link rel="stylesheet" th:href="@{/static/css/Admin/style_AdminHome.css}">
+    <link rel="stylesheet" th:href="@{static/css/Admin/style_AdminHome.css}">
 </head>
 
 <body>
@@ -58,11 +58,11 @@
     <form th:action="@{/AdminUpdate}">
         <div class="infogroup">
             <label for="username">用户名：</label>
-            <input type="text" id="username" name="M_id" th:value="${admin.M_id}" readonly="readonly">
+            <input type="text" id="username" name="M_id" th:value="${session.Logined_User.M_id}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="password">用户名：</label>
-            <input type="password" id="password" name="M_pwd" th:value="${admin.M_pwd}" readonly="readonly">
+            <input type="password" id="password" name="M_pwd" th:value="${session.Logined_User.M_pwd}" readonly="readonly">
         </div>
         <div id="btngroup">
             <button class="button" type="submit">修改个人信息</button>

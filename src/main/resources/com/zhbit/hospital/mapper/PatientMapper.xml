@@ -19,14 +19,14 @@
         where P_id = #{id}
     </select>
 
-    <!-- boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id); -->
+    <!-- boolean updatePatient(@Param("patient") Patient patient); -->
     <update id="updatePatient">
         update patient
-        set P_username = #{username},
-            P_pwd      = #{password},
-            P_med      = #{med},
-            P_ill      = #{illness}
-        where P_id = #{id}
+        set P_username = #{patient.P_username},
+            P_pwd      = #{patient.P_pwd},
+            P_med      = #{patient.P_med},
+            P_ill      = #{patient.P_ill}
+        where P_id = #{patient.P_id}
     </update>
 
     <!-- List<Patient> getAll(); -->

@@ -18,7 +18,7 @@ public interface PatientService {
 
     Patient getPatientById(int id);
 
-    boolean updatePatient(String username, String password, String med, String illness, int id);
+    boolean updatePatient(Patient patient);
 
     List<Patient> getAll();
 

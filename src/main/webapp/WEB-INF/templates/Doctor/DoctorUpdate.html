@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>医生信息修改</title>
-    <link rel="stylesheet" th:href="@{/static/css/Doctor/style_DoctorUpdate.css}">
+    <link rel="stylesheet" th:href="@{static/css/Doctor/style_DoctorUpdate.css}">
 </head>
 
 <body>
@@ -12,28 +12,28 @@
     <h2>修改个人信息</h2>
     <form th:action="@{/Doctor}" method="post">
         <input type="hidden" name="_method" value="put">
-        <input type="hidden" name="D_id" th:value="${doctor.D_id}">
-        <input type="hidden" name="D_age" th:value="${doctor.D_age}">
-        <input type="hidden" name="D_sex" th:value="${doctor.D_sex}">
+        <input type="hidden" name="D_id" th:value="${session.Logined_User.D_id}">
+        <input type="hidden" name="D_age" th:value="${session.Logined_User.D_age}">
+        <input type="hidden" name="D_sex" th:value="${session.Logined_User.D_sex}">
         <div class="infogroup">
             <label for="username">用户名：</label>
-            <input type="text" name="D_username" id="username" th:value="${doctor.D_username}">
+            <input type="text" name="D_username" id="username" th:value="${session.Logined_User.D_username}">
         </div>
         <div class="infogroup">
             <label for="password">密码：</label>
-            <input type="password" name="D_pwd" id="password" th:value="${doctor.D_pwd}">
+            <input type="password" name="D_pwd" id="password" th:value="${session.Logined_User.D_pwd}">
         </div>
         <div class="infogroup">
             <label for="name">医生姓名：</label>
-            <input type="text" name="D_name" id="name" th:value="${doctor.D_name}">
+            <input type="text" name="D_name" id="name" th:value="${session.Logined_User.D_name}">
         </div>
         <div class="infogroup">
             <label for="sur">所属诊室：</label>
-            <input type="text" name="SUR_id" id="sur" th:value="${doctor.SUR_id}">
+            <input type="text" name="SUR_id" id="sur" th:value="${session.Logined_User.SUR_id}">
         </div>
         <div class="btngroup">
             <button type="submit" class="button" name="submit">修改</button>
-            <a th:href="@{'/Doctor/'+${doctor.D_id}}">
+            <a th:href="@{/DoctorHome}">
                 <button class="button" type="button">返回</button>
             </a>
         </div>

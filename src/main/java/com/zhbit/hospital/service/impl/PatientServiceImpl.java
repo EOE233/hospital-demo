@@ -3,7 +3,6 @@ package com.zhbit.hospital.service.impl;
 import com.zhbit.hospital.bean.Patient;
 import com.zhbit.hospital.mapper.PatientMapper;
 import com.zhbit.hospital.service.PatientService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +32,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public boolean updatePatient(String username, String password, String med, String illness, int id) {
-        return patientMapper.updatePatient(username, password, med, illness, id);
+    public boolean updatePatient(Patient patient) {
+        return patientMapper.updatePatient(patient);
     }
 
 }

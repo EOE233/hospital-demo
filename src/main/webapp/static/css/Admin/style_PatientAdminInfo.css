@@ -16,7 +16,7 @@ body {
     height: 460px;
     box-shadow: 0 0 40px 16px rgba(0, 0, 0, .2);
     color: #f1f1f2;
-    width: 950px;
+    width: 1150px;
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -92,7 +92,7 @@ table {
 
 .shell {
     margin: 0 auto;
-    width: 900px;
+    width: 1100px;
     height: 350px;
     overflow: scroll;
     overflow-x: hidden;

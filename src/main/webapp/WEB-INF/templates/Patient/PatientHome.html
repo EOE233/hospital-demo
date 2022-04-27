@@ -6,7 +6,7 @@
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientHome.css}">
+    <link rel="stylesheet" th:href="@{static/css/Doctor/style_DoctorHome.css}">
 </head>
 <body>
 <div class="leftdiv">
@@ -18,22 +18,22 @@
     <h2>个人信息</h2>
         <div class="infogroup">
             <label for="username">用户名：</label>
-            <input type="text" id="username" name="username" th:value="${patient.P_username}" readonly="readonly">
+            <input type="text" id="username" name="username" th:value="${session.Logined_User.P_username}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="password">密码：</label>
-            <input type="password" id="password" name="password" th:value="${patient.P_pwd}" readonly="readonly">
+            <input type="password" id="password" name="password" th:value="${session.Logined_User.P_pwd}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="name">姓名：</label>
-            <input type="text" id="name" name="name" th:value="${patient.P_name}" readonly="readonly">
+            <input type="text" id="name" name="name" th:value="${session.Logined_User.P_name}" readonly="readonly">
         </div>
         <div class="infogroup">
             <label for="sex">性别：</label>
-            <input type="text" id="sex" name="sex" th:value="${patient.P_sex}" readonly="readonly">
+            <input type="text" id="sex" name="sex" th:value="${session.Logined_User.P_sex}" readonly="readonly">
         </div>
         <div id="btngroup">
-            <a th:href="@{'/PatientUpdate/'+${patient.P_id}}"><button class="button">修改个人信息</button></a>
+            <a th:href="@{/PatientUpdate}"><button class="button">修改个人信息</button></a>
             <a th:href="@{/Login}"><button class="button">返回</button></a>
         </div>
 </div>

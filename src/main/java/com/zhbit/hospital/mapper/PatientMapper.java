@@ -13,7 +13,7 @@ public interface PatientMapper {
 
     Patient getPatientById(@Param("id") int id);
 
-    boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id);
+    boolean updatePatient(@Param("patient") Patient patient);
 
     List<Patient> getAll();
 

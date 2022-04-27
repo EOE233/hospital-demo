@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.jws.WebParam;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -28,33 +30,32 @@ public class PatientController {
     @Autowired
     InterviewService interviewService;
 
-    @RequestMapping(value = "/PatientUpdate/{id}", method = RequestMethod.GET)
-    public String toUpdate(@PathVariable("id") int id, Model model) {
-        Patient patient = patientService.getPatientById(id);
-        model.addAttribute("patient", patient);
-        System.out.println(patient);
+    @RequestMapping(value = "/PatientUpdate", method = RequestMethod.GET)
+    public String toUpdate() {
         return "Patient/PatientUpdate";
     }
 
-    @RequestMapping(value = "/PatientHome/{id}", method = RequestMethod.GET)
-    public String toPatientHome(@PathVariable("id") int id, Model model) {
-        Patient patient = patientService.getPatientById(id);
-        List<Interview> interviews = interviewService.getInterviewByP_id(id);
+    @RequestMapping(value = "/PatientHome", method = RequestMethod.GET)
+    public String toPatientHome(HttpSession session, Model model) {
+        //从session域中获取patient对象
+        Patient patient = (Patient) session.getAttribute("Logined_User");
+        //获取患者的预约信息
+        List<Interview> interviews = interviewService.getInterviewByP_id(patient.getP_id());
+        //共享到request域中
         model.addAttribute("interviews", interviews);
-        model.addAttribute("patient", patient);
         return "Patient/PatientHome";
     }
 
-    @RequestMapping(value = ("/Patient"), method = RequestMethod.PUT)
-    public String updatePatient(int id, String username, String password, String med, String illness) {
-        boolean flag = patientService.updatePatient(username, password, med, illness, id);
-        if (flag) {
-            return "redirect:/PatientHome/" + id;
-        } else {
-            return "ERROR";
-        }
+    @RequestMapping(value = "/Patient", method = RequestMethod.PUT)
+    public String updatePatient(Patient patient, HttpSession session, Model model) {
+        //更新患者信息
+        patientService.updatePatient(patient);
+        //将新的患者信息共享到session域中
+        session.setAttribute("Logined_User", patient);
+        //获取患者的预约信息
+        List<Interview> interviews = interviewService.getInterviewByP_id(patient.getP_id());
+        //将预约信息共享到request域
+        model.addAttribute("interviews", interviews);
+        return "Patient/PatientHome";
     }
-
-
-
 }
