@@ -40,4 +40,6 @@ public interface AdminService {
      * 通过id获取管理员信息
      */
     Administrator getAdminById(String id);
+
+
 }

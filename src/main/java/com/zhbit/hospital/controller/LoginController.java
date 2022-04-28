@@ -23,8 +23,6 @@ public class LoginController {
     @Autowired
     DoctorService doctorService;
     @Autowired
-    SCHMapper schMapper;
-    @Autowired
     SCHService schService;
     @Autowired
     AdminService adminService;

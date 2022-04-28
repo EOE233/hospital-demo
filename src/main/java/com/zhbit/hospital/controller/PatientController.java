@@ -21,12 +21,7 @@ import java.util.List;
 public class PatientController {
 
     @Autowired
-    PatientMapper patientMapper;
-    @Autowired
     PatientService patientService;
-
-    @Autowired
-    InterviewMapper interviewMapper;
     @Autowired
     InterviewService interviewService;
 

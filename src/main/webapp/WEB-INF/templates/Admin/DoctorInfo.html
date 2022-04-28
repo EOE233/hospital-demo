@@ -13,7 +13,7 @@
 <div class="rightdiv">
     <div class="head">
         <h2>医生信息管理</h2>
-        <a href="#">
+        <a th:href="@{/Admin}">
             <button type="button" class="button">返回</button>
         </a>
     </div>
@@ -35,8 +35,17 @@
                 <td th:text="${doctor.D_age}"></td>
                 <td th:text="${doctor.D_sex}"></td>
                 <td th:text="${doctor.SUR_id}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeleteDocotr/'+${doctor.D_id}}">
+                        删除
+                    </a>
+
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdateDoctor/'+${doctor.D_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
 

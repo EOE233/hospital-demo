@@ -2,6 +2,7 @@ package com.zhbit.hospital.controller;
 
 import com.zhbit.hospital.bean.*;
 import com.zhbit.hospital.service.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.print.Doc;
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,29 +19,21 @@ import java.util.List;
 public class AdminController {
     @Autowired
     AdminService adminService;
-
     @Autowired
     DoctorService doctorService;
-
     @Autowired
     PatientService patientService;
-
     @Autowired
     InterviewService interviewService;
-
     @Autowired
     SCHService schService;
-
     @Autowired
     SurgeryService surgeryService;
-
     @Autowired
     OfficeService officeService;
 
-    @RequestMapping(value = "/Admin/{id}")
-    public String toAdminHome(@PathVariable("id") String id, Model model) {
-        Administrator admin = adminService.getAdminById(id);
-        model.addAttribute("admin", admin);
+    @RequestMapping(value = "/Admin")
+    public String toAdminHome() {
         return "Admin/AdminHome";
     }
 
@@ -60,6 +55,25 @@ public class AdminController {
         Collection<Doctor> doctors = doctorService.getAll();
         model.addAttribute("doctors", doctors);
         return "Admin/DoctorInfo";
+    }
+
+    @RequestMapping(value = "/AdminUpdateDoctor/{id}", method = RequestMethod.GET)
+    public String toUpdateDoctor(Model model, @PathVariable("id") int id) {
+        Doctor doctor = doctorService.getDoctorById(id);
+        model.addAttribute("doctor", doctor);
+        return "Admin/DoctorUpdate";
+    }
+
+    @RequestMapping(value = "/AdminUpdateDoctor", method = RequestMethod.PUT)
+    public String updateDoctor(Doctor doctor) {
+        doctorService.updateDoctor(doctor);
+        return "redirect:/AdminDoctor";
+    }
+
+    @RequestMapping(value = "/AdminDeleteDocotr/{id}", method = RequestMethod.GET)
+    public String deleteDoctorAdmin(@PathVariable("id") int id) {
+        adminService.deleteDoctor(id);
+        return "redirect:/AdminDoctor";
     }
 
     @RequestMapping(value = "/AdminOffice")
