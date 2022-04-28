@@ -12,5 +12,7 @@ public interface SCHService {
 
     List<SCH> getAll();
 
+    SCH getSCHById(int id);
 
+    boolean updateSCH(SCH sch);
 }

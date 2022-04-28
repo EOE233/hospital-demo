@@ -21,7 +21,7 @@ public interface AdminMapper {
     Administrator getAdministratorByIdAndPassword(@Param("mId") String mId, @Param("mPwd") String mPwd);
 
     /**
-     * 医生信息管理(待测试)
+     * 医生信息管理
      * 包含删除医生、获取医生信息和更新医生信息
      */
     boolean deleteDoctor(@Param("id") int id);
@@ -29,11 +29,35 @@ public interface AdminMapper {
     boolean updateDoctor(@Param("doctor") Doctor doctor);
 
     /**
-     * 患者信息管理(待测试)
+     * 患者信息管理
      * 包含获取患者信息和更新患者信息
      */
     Patient getPatientById(@Param("id") int id);
     boolean updatePatient(@Param("username") String username, @Param("password") String password, @Param("med") String med, @Param("illness") String illness, @Param("id") int id);
+    boolean deletePatient(@Param("id") int id);
+
+    /**
+     * 科室信息管理
+     * 包含删除科室
+     */
+    boolean deleteOffice(@Param("id") int id);
+
+    /**
+     * 诊室信息管理
+     * 包含删除诊室
+     */
+    boolean deleteSurgery(@Param("id") int id);
+
+    /**
+     * 预约管理模块
+     * 删除预约信息
+     */
+    boolean deleteInterview(@Param("id") int id);
+
+    /**
+     * 排班管理
+     */
+    boolean deleteSCH(@Param("id") int id);
 
     /**
      * 修改管理员信息

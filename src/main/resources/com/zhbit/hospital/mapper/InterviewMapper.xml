@@ -3,6 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhbit.hospital.mapper.InterviewMapper">
+    <update id="updateInterview">
+        update interview
+        set P_id = #{interview.P_id},
+            I_date = #{interview.I_date},
+            I_time = #{interview.I_time},
+            D_id = #{interview.D_id}
+    </update>
 
     <!-- List<Interview> getInterviewByP_id (int id); -->
     <select id="getInterviewByP_id" resultType="com.zhbit.hospital.bean.Interview">
@@ -22,5 +29,10 @@
     <select id="getAll" resultType="com.zhbit.hospital.bean.Interview">
         select *
         from interview
+    </select>
+    <select id="getInterviewById" resultType="com.zhbit.hospital.bean.Interview">
+        select *
+        from interview
+        where I_id = #{id}
     </select>
 </mapper>

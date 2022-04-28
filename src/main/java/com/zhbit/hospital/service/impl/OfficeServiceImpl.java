@@ -1,5 +1,6 @@
 package com.zhbit.hospital.service.impl;
 
+import com.zhbit.hospital.bean.Doctor;
 import com.zhbit.hospital.bean.Office;
 import com.zhbit.hospital.mapper.OfficeMapper;
 import com.zhbit.hospital.service.OfficeService;
@@ -17,5 +18,15 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     public List<Office> getAll() {
         return officeMapper.getAll();
+    }
+
+    @Override
+    public Office getOfficeById(int id) {
+        return officeMapper.getOfficeById(id);
+    }
+
+    @Override
+    public boolean updateOffice(Office office) {
+        return officeMapper.updateOffice(office);
     }
 }

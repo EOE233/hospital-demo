@@ -15,4 +15,9 @@ public interface InterviewService {
     List<Interview> getInterviewByD_id (@Param("D_id") int id);
 
     List<Interview> getAll();
+
+    Interview getInterviewById(int id);
+
+    boolean updateInterview(Interview interview);
+
 }

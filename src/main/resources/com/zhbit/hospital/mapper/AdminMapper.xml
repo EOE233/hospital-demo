@@ -26,6 +26,32 @@
         from doctor
         where D_id = #{id}
     </delete>
+    <delete id="deleteOffice">
+        delete
+        from office
+        where O_id = #{id}
+    </delete>
+    <delete id="deleteSurgery">
+        delete
+        from surgery
+        where SUR_id = #{id}
+    </delete>
+    <delete id="deleteInterview">
+        select *
+        from interview
+        where I_id = #{id}
+    </delete>
+
+    <delete id="deleteSCH">
+        select *
+        from sch
+        where SCH_id = #{id}
+    </delete>
+    <delete id="deletePatient">
+        delete
+        from patient
+        where P_id = #{id}
+    </delete>
 
     <!-- Doctor getDoctorById(@Param("id") String id); -->
     <select id="getDoctorById" resultType="com.zhbit.hospital.bean.Doctor">

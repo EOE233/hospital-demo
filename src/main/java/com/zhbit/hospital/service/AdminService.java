@@ -19,17 +19,37 @@ public interface AdminService {
     Administrator getAdministratorByIdAndPassword(String mId, String mPwd);
 
     /**
-     * 管理医生信息
+     * 医生管理模块
      */
     boolean deleteDoctor(int id);
     Doctor getDoctorById(int id);
     boolean updateDoctor(Doctor doctor);
 
     /**
-     * 管理患者信息
+     * 患者管理模块
      */
     Patient getPatientById(int id);
     boolean updatePatient(String username, String password, String med, String illness, int id);
+    boolean deletePatient(int id);
+    /**
+     * 科室管理模块
+     */
+    boolean deleteOffice(int id);
+
+    /**
+     * 诊室信息管理模块
+     */
+    boolean deleteSurgery(int id);
+
+    /**
+     * 预约管理模块
+     */
+    boolean deleteInterview(int id);
+
+    /**
+     * 排班管理模块
+     */
+    boolean deleteSCH(int id);
 
     /**
      * 修改管理员信息

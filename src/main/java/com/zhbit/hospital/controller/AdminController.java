@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.print.Doc;
 import javax.servlet.http.HttpSession;
@@ -50,6 +48,9 @@ public class AdminController {
         return "redirect:/Admin/" + admin.getM_id();
     }
 
+    /**
+     * 医生管理模块
+     */
     @RequestMapping(value = "/AdminDoctor")
     public String toDoctorInfo(Model model) {
         Collection<Doctor> doctors = doctorService.getAll();
@@ -57,6 +58,7 @@ public class AdminController {
         return "Admin/DoctorInfo";
     }
 
+    //---
     @RequestMapping(value = "/AdminUpdateDoctor/{id}", method = RequestMethod.GET)
     public String toUpdateDoctor(Model model, @PathVariable("id") int id) {
         Doctor doctor = doctorService.getDoctorById(id);
@@ -75,7 +77,12 @@ public class AdminController {
         adminService.deleteDoctor(id);
         return "redirect:/AdminDoctor";
     }
+    //---
 
+
+    /**
+     * 科室管理模块
+     */
     @RequestMapping(value = "/AdminOffice")
     public String toOfficeInfo(Model model) {
         List<Office> offices = officeService.getAll();
@@ -83,6 +90,39 @@ public class AdminController {
         return "Admin/OfficeInfo";
     }
 
+    //增加内容
+
+    /**
+     * 前往修改科室页面
+     */
+    @GetMapping(value = "/AdminUpdateOffice/{id}")
+    public String toUpdateOffice(Model model, @PathVariable("id") int id){
+        Office office = officeService.getOfficeById(id);
+        model.addAttribute("office", office);
+        return "Admin/OfficeUpdate";
+    }
+
+    /**
+     * 修改科室信息
+     */
+    @PutMapping("/AdminUpdateOffice")
+    public String updateOffice(Office office){
+        officeService.updateOffice(office);
+        return "redirect:/AdminOffice";
+    }
+
+    /**
+     * 删除科室
+     */
+    @GetMapping("/AdminDeleteOffice/{id}")
+    public String deleteOfficeAdmin(@PathVariable("id") int id){
+        adminService.deleteOffice(id);
+        return "redirect:/AdminOffice";
+    }
+
+    /**
+     * 诊室管理模块
+     */
     @RequestMapping(value = "/AdminSurgery")
     public String toSurgeryInfo(Model model) {
         List<Surgery> surgeries = surgeryService.getAll();
@@ -90,20 +130,80 @@ public class AdminController {
         return "Admin/SurgeryInfo";
     }
 
+    @GetMapping("/AdminUpdateSurgery/{id}")
+    public String toUpdateSurgery(Model model, @PathVariable("id") int id){
+        Surgery surgery = surgeryService.getSurgeryById(id);
+        model.addAttribute("surgery", surgery);
+        return "Admin/SurgeryUpdate";
+    }
+    @PutMapping("AdminUpdateSurgery")
+    public String updateSurgery(Surgery surgery){
+        surgeryService.updateSurgery(surgery);
+        return "redirect:/AdminSurgery";
+    }
+    @GetMapping("/AdminDeleteSurgery/{id}")
+    public String deleteSurgeryAdmin(@PathVariable("id") int id){
+        adminService.deleteSurgery(id);
+        return "redirect:/AdminSurgery";
+    }
+
+
+    /**
+     * 预约管理模块
+     */
     @RequestMapping(value = "/AdminInterview")
     public String toInterviewInfo(Model model) {
         List<Interview> interviews = interviewService.getAll();
         model.addAttribute("interviews", interviews);
         return "Admin/InterviewInfo";
     }
+    @GetMapping("/AdminUpdateInterview/{id}")
+    public String toUpdateInterview(Model model, @PathVariable("id") int id){
+        Interview interview = interviewService.getInterviewById(id);
+        model.addAttribute("interview", interview);
+        return "Admin/InterviewUpdate";
+    }
+    @PutMapping("AdminUpdateInterview")
+    public String updateInterview(Interview interview){
+        interviewService.updateInterview(interview);
+        return "redirect:/AdminInterview";
+    }
+    @GetMapping("/AdminDeleteInterview/{id}")
+    public String deleteInterviewAdmin(@PathVariable("id") int id){
+        adminService.deleteInterview(id);
+        return "redirect:/AdminInterview";
+    }
 
+    /**
+     * 排班管理模块
+     */
     @RequestMapping(value = "/AdminSCH")
     public String toSCHInfo(Model model) {
         List<SCH> schs = schService.getAll();
         model.addAttribute("schs", schs);
         return "Admin/SCHInfo";
     }
+    @GetMapping("AdminUpdateSCH")
+    public String toUpdateSCH(Model model, @PathVariable("id") int id){
+        SCH sch = schService.getSCHById(id);
+        model.addAttribute("sch", sch);
+        return "Admin/SCHUpdate";
+    }
+    @PutMapping("/AdminDeleteSCH/{id}")
+    public String updateSCH(SCH sch){
+        schService.updateSCH(sch);
+        return "redirect:/AdminSCH";
+    }
 
+    @GetMapping("/AdminDeleteSCH/{id}")
+    public String deleteSCHAdmin(@PathVariable("id") int id){
+        adminService.deleteSCH(id);
+        return "redirect:/AdminSCH";
+    }
+
+    /**
+     * 患者管理模块
+     */
     @RequestMapping(value = "/AdminPatient")
     public String toPatientInfo(Model model) {
         List<Patient> patients = patientService.getAll();
@@ -130,5 +230,9 @@ public class AdminController {
         return "redirect:/AdminPatient";
     }
 
-
+    @GetMapping("/AdminDeletePatient/{id}")
+    public String deletePatientAdmin(@PathVariable("id") int id){
+        adminService.deletePatient(id);
+        return "redirect:/AdminPatient";
+    }
 }

@@ -18,6 +18,16 @@ public class SCHServiceImpl implements SCHService {
     }
 
     @Override
+    public SCH getSCHById(int id) {
+        return schMapper.getSCHById(id);
+    }
+
+    @Override
+    public boolean updateSCH(SCH sch) {
+        return schMapper.updateSCH(sch);
+    }
+
+    @Override
     public List<SCH> getSCHByD_id(int id) {
         return schMapper.getSCHByD_id(id);
     }

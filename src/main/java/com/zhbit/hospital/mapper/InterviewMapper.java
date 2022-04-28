@@ -1,5 +1,6 @@
 package com.zhbit.hospital.mapper;
 
+import com.zhbit.hospital.bean.Doctor;
 import com.zhbit.hospital.bean.Interview;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,12 @@ public interface InterviewMapper {
     List<Interview> getInterviewByD_id (@Param("D_id") int id);
 
     List<Interview> getAll();
+
+    Interview getInterviewById(@Param("id") int id);
+
+    boolean updateInterview(@Param("interview") Interview interview);
+
+
+
 
 }

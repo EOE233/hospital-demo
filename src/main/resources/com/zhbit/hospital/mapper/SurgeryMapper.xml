@@ -3,11 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhbit.hospital.mapper.SurgeryMapper">
+    <update id="updateSurgery">
+        update surgery
+        set O_id = #{surgery.O_id},
+            SUR_site = #{surgery.SUR_site},
+            SUR_mana = #{surgery.SUR_mana}
+        where SUR_id = #{surgery.SuR_id}
+    </update>
 
     <!-- List<Surgery> getAll(); -->
     <select id="getAll" resultType="com.zhbit.hospital.bean.Surgery">
         select *
         from surgery
+    </select>
+    <select id="getSurgeryById" resultType="com.zhbit.hospital.bean.Surgery">
+        select *
+        from surgery
+        where SUR_id = #{id}
     </select>
 
 </mapper>

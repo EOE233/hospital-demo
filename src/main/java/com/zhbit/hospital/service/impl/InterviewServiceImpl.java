@@ -30,4 +30,14 @@ public class InterviewServiceImpl implements InterviewService {
     public List<Interview> getAll() {
         return interviewMapper.getAll();
     }
+
+    @Override
+    public Interview getInterviewById(int id) {
+        return interviewMapper.getInterviewById(id);
+    }
+
+    @Override
+    public boolean updateInterview(Interview interview) {
+        return interviewMapper.updateInterview(interview);
+    }
 }

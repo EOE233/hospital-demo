@@ -18,4 +18,14 @@ public class SurgeryServiceImpl implements SurgeryService {
     public List<Surgery> getAll() {
         return surgeryMapper.getAll();
     }
+
+    @Override
+    public boolean updateSurgery(Surgery surgery) {
+        return surgeryMapper.updateSurgery(surgery);
+    }
+
+    @Override
+    public Surgery getSurgeryById(int id) {
+        return surgeryMapper.getSurgeryById(id);
+    }
 }

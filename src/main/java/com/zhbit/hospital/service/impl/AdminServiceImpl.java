@@ -59,4 +59,29 @@ public class AdminServiceImpl implements AdminService {
     public boolean updatePatient(String username, String password, String med, String illness, int id) {
         return adminMapper.updatePatient(username, password, med, illness, id);
     }
+
+    @Override
+    public boolean deleteOffice(int id) {
+        return adminMapper.deleteOffice(id);
+    }
+
+    @Override
+    public boolean deleteSurgery(int id) {
+        return adminMapper.deleteSurgery(id);
+    }
+
+    @Override
+    public boolean deleteSCH(int id) {
+        return adminMapper.deleteSCH(id);
+    }
+
+    @Override
+    public boolean deletePatient(int id) {
+        return adminMapper.deletePatient(id);
+    }
+
+    @Override
+    public boolean deleteInterview(int id) {
+        return adminMapper.deleteInterview(id);
+    }
 }

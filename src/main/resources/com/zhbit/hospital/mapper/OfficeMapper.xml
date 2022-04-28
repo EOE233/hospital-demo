@@ -3,11 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhbit.hospital.mapper.OfficeMapper">
+    <!--  boolean updateOffice(@Param("office") Office office); -->
+    <update id="updateOffice">
+        update office
+        set O_name      = #{office.O_name},
+            O_des     = #{office.O_des},
+            O_site     = #{office.O_site}
+        where O_id = #{office.O_id}
+    </update>
 
     <!-- List<Office> getAll(); -->
     <select id="getAll" resultType="com.zhbit.hospital.bean.Office">
+        select * from office
+    </select>
+
+    <!-- Doctor getOfficeById(@Param("id") int id); -->
+    <select id="getOfficeById" resultType="com.zhbit.hospital.bean.Office">
         select *
         from office
+        where O_id = #{id}
     </select>
+
+
+
 
 </mapper>
