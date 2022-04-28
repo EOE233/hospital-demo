@@ -52,7 +52,7 @@ input {
     outline: none !important;
 }
 
-form {
+.form-group{
     margin-left: 80px;
 }
 

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>医生信息修改</title>
-    <link rel="stylesheet" th:href="@{static/css/Admin/style_DoctorAdminUpdate.css}">
+
 </head>
 <body>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
       integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_DoctorAdminUpdate.css}">
 <div class="rightdiv">
     <h2>修改医生信息</h2>
     <form th:action="@{/AdminUpdateDoctor}" method="post">
