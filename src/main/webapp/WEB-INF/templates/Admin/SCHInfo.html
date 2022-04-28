@@ -40,8 +40,16 @@
                 <td th:text="${sch.SCH_time}"></td>
                 <td th:text="${sch.SCH_size}"></td>
                 <td th:text="${sch.SCH_booked}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeleteSCH/'+${sch.SCH_id}}">
+                        删除
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdateSCH/'+${sch.SCH_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
     </div>

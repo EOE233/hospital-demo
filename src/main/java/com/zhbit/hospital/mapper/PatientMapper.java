@@ -17,4 +17,5 @@ public interface PatientMapper {
 
     List<Patient> getAll();
 
+    boolean deletePatient(@Param("id") int id);
 }

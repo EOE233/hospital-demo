@@ -36,8 +36,16 @@
                 <td th:text="${interview.I_date}"></td>
                 <td th:text="${interview.I_time}"></td>
                 <td th:text="${interview.D_id}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeleteInterview/'+${interview.I_id}}">
+                        删除
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdateInterview/'+${interview.I_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
     </div>

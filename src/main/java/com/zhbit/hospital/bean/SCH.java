@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SCH {
-
+    private int SCH_id;
     private int D_id;
     private int SUR_id;
     private String SCH_date;
@@ -18,13 +18,22 @@ public class SCH {
     @Override
     public String toString() {
         return "SCH{" +
-                "D_id=" + D_id +
+                "SCH_id=" + SCH_id +
+                ", D_id=" + D_id +
                 ", SUR_id=" + SUR_id +
                 ", SCH_date='" + SCH_date + '\'' +
                 ", SCH_time='" + SCH_time + '\'' +
                 ", SCH_size=" + SCH_size +
                 ", SCH_booked=" + SCH_booked +
                 '}';
+    }
+
+    public int getSCH_id() {
+        return SCH_id;
+    }
+
+    public void setSCH_id(int SCH_id) {
+        this.SCH_id = SCH_id;
     }
 
     public int getD_id() {
@@ -75,7 +84,8 @@ public class SCH {
         this.SCH_booked = SCH_booked;
     }
 
-    public SCH(int d_id, int SUR_id, String SCH_date, String SCH_time, int SCH_size, int SCH_booked) {
+    public SCH(int SCH_id, int d_id, int SUR_id, String SCH_date, String SCH_time, int SCH_size, int SCH_booked) {
+        this.SCH_id = SCH_id;
         D_id = d_id;
         this.SUR_id = SUR_id;
         this.SCH_date = SCH_date;

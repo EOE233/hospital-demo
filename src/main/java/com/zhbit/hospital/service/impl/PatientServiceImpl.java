@@ -27,6 +27,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public boolean deletePatientById(int id) {
+        return patientMapper.deletePatient(id);
+    }
+
+    @Override
     public Patient getPatientById(int id) {
         return patientMapper.getPatientById(id);
     }

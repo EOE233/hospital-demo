@@ -34,8 +34,16 @@
                 <td th:text="${office.O_name}"></td>
                 <td th:text="${office.O_des}"></td>
                 <td th:text="${office.O_site}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeleteOffice/'+${office.O_id}}">
+                        删除
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdateOffice/'+${office.O_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
     </div>

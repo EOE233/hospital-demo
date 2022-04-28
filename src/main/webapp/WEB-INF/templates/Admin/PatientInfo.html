@@ -44,8 +44,16 @@
                 <td th:text="${patient.P_num}"></td>
                 <td th:text="${patient.P_med}"></td>
                 <td th:text="${patient.P_ill}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeletePatient/'+${patient.P_id}}">
+                        删除
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdatePatient/'+${patient.P_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
     </div>

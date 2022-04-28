@@ -34,8 +34,16 @@
                 <td th:text="${surgery.O_id}"></td>
                 <td th:text="${surgery.SUR_site}"></td>
                 <td th:text="${surgery.SUR_mana}"></td>
-                <td>删除</td>
-                <td>修改</td>
+                <td>
+                    <a th:href="@{'/AdminDeleteSurgery/'+${surgery.SUR_id}}">
+                        删除
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/AdminUpdateSurgery/'+${surgery.SUR_id}}">
+                        修改
+                    </a>
+                </td>
             </tr>
         </table>
     </div>

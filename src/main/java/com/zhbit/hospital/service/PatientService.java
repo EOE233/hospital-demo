@@ -22,5 +22,6 @@ public interface PatientService {
 
     List<Patient> getAll();
 
+    boolean deletePatientById(int id);
 
 }

@@ -111,5 +111,24 @@ public class AdminController {
         return "Admin/PatientInfo";
     }
 
+    @RequestMapping(value = "/AdminUpdatePatient/{id}", method = RequestMethod.GET)
+    public String toUpdatePatient(@PathVariable("id") int id, Model model) {
+        Patient patient = patientService.getPatientById(id);
+        model.addAttribute("patient", patient);
+        return "Admin/PatientUpdate";
+    }
+
+    @RequestMapping(value = "/AdminUpdatePatient", method = RequestMethod.PUT)
+    public String updatePatient(Patient patient) {
+        patientService.updatePatient(patient);
+        return "redirect:/AdminPatient";
+    }
+
+    @RequestMapping(value = "/AdminDeletePatient/(id}", method = RequestMethod.GET)
+    public String deletePatient(@PathVariable("id") int id) {
+        patientService.deletePatientById(id);
+        return "redirect:/AdminPatient";
+    }
+
 
 }

@@ -35,4 +35,11 @@
         from patient
     </select>
 
+    <!-- boolean deletePatient(@Param("id") int id); -->
+    <delete id="deletePatient">
+        delete
+        from patient
+        where P_id = #{id}
+    </delete>
+
 </mapper>
