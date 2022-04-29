@@ -5,9 +5,9 @@
 <mapper namespace="com.zhbit.hospital.mapper.PatientMapper">
     <insert id="registerPatient">
         insert into patient
-        set P_username = #{username}, P_pwd = #{password}, P_name = #{name},
-            P_sex = #{sex}, P_age = #{age}, P_num = #{num}, P_med = #{med},
-            P_ill = #{ill};
+            value (
+            #{patient.P_id}, #{patient.P_username}, #{patient.P_pwd}, #{patient.P_name}, #{patient.P_sex}, #{patient.P_age}, #{patient.P_num}, #{patient.P_med}, #{patient.P_ill}
+        )
     </insert>
 
     <!-- Patient getPatientByUsernameAndPassword (String P_username, String P_pwd); -->

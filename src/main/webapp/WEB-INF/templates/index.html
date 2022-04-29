@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
-    <link rel="stylesheet" th:href="@{/static/css/style_index.css}">
+
 </head>
 
 
 <body>
+<link rel="stylesheet" th:href="@{/static/css/style_index.css}">
 <div class="shell">
     <div class="box-left">
         <h2>Login</h2>
@@ -26,11 +27,11 @@
                 <input type="radio" name="loginType" value="patient" class="loginType" checked="checked">患者
                 <input type="radio" name="loginType" value="doctor" class="loginType">医生
                 <input type="radio" name="loginType" value="admin" class="loginType">管理员
-                <div id="btngroup">
+                <div class="btngroup">
                     <a th:href="@{/PatientRegister}">
                         <button type="button" class="button">Register</button>
                     </a>
-                    <input type="submit" id="submit" value="Submit">
+                    <input type="submit" id="submit" value="Submit" class="button">
                 </div>
             </form>
         </div>

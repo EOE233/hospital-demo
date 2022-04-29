@@ -83,46 +83,32 @@ label::before {
     background-image: linear-gradient(to right, #44ffff, #b888ff);
 }
 
-#btngroup {
+.btngroup {
     margin-top: -20px;
     display: flex;
     justify-content: space-around;
-}
-
-#submit {
-    color: #fff;
-    margin-top: 40px;
-    width: 100px;
-    height: 35px;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 20px;
-    transition: .3s;
-}
-
-#submit:hover {
-    letter-spacing: 2px;
-    color: #000;
-    background-color: #fff;
-}
-
-#register {
-    color: #fff;
-    margin-top: 40px;
-    width: 100px;
-    height: 35px;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 20px;
-    transition: .3s;
-}
-
-#register:hover {
-    letter-spacing: 2px;
-    color: #000;
-    background-color: #fff;
 }
 
 .loginType {
     margin-top: 20px;
     width: 30px;
     height: 15px;
+}
+
+.button {
+    outline: none;
+    border: 0;
+    color: #fff;
+    margin-top: 40px;
+    width: 120px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.button:hover {
+    letter-spacing: 3px;
+    color: #000;
+    background-color: rgba(173, 172, 172, 0.349);
 }

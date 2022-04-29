@@ -2,14 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Info</title>
-    <link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientRegister.css}">
+    <title>患者注册</title>
 </head>
 <body>
+<link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientRegister.css}">
 <div class="rightdiv">
     <h2>注册患者</h2>
-    <form th:action="@{/Register}" method="post">
-        <input type="hidden" name="P_id" value="null">
+    <form th:action="@{/RegisterPatient}" method="post">
         <div class="infogroup">
             <label for="username">用户名：</label>
             <input type="text" name="P_username" id="username">
