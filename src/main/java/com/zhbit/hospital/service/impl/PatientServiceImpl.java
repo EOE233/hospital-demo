@@ -16,6 +16,20 @@ import java.util.List;
 public class PatientServiceImpl implements PatientService {
     @Autowired
     PatientMapper patientMapper;
+
+//    @Override
+//    public boolean registerPatient(String username, String password, String name, String sex, int age, String num, String med, String ill) {
+//        return patientMapper.registerPatient(username, password, name, sex, age, num, med, ill);
+//    }
+    /**
+     * 注册患者
+     */
+    @Override
+    public boolean registerPatient(Patient patient) {
+        return patientMapper.registerPatient(patient);
+    }
+
+
     @Override
     public Patient getPatientByUsernameAndPassword(String P_username,String P_pwd) {
         return patientMapper.getPatientByUsernameAndPassword(P_username,P_pwd);

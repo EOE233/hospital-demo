@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhbit.hospital.mapper.PatientMapper">
+    <insert id="registerPatient">
+        insert into patient
+        set P_username = #{username}, P_pwd = #{password}, P_name = #{name},
+            P_sex = #{sex}, P_age = #{age}, P_num = #{num}, P_med = #{med},
+            P_ill = #{ill};
+    </insert>
 
     <!-- Patient getPatientByUsernameAndPassword (String P_username, String P_pwd); -->
     <select id="getPatientByUsernameAndPassword" resultType="com.zhbit.hospital.bean.Patient">

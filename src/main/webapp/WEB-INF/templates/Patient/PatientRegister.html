@@ -8,7 +8,7 @@
 <body>
 <div class="rightdiv">
     <h2>注册患者</h2>
-    <form action="">
+    <form th:action="@{/Register}" method="post">
         <input type="hidden" name="P_id" value="null">
         <div class="infogroup">
             <label for="username">用户名：</label>
@@ -16,31 +16,31 @@
         </div>
         <div class="infogroup">
             <label for="username">密码：</label>
-            <input type="text" name="P_pwd">
+            <input type="text" name="P_pwd" id="password">
         </div>
         <div class="infogroup">
             <label for="username">姓名：</label>
-            <input type="text" name="P_name">
+            <input type="text" name="P_name" id="name">
         </div>
         <div class="infogroup">
             <label for="username">性别</label>
-            <input type="text" name="P_sex">
+            <input type="text" name="P_sex" id="sex">
         </div>
         <div class="infogroup">
             <label for="username">年龄</label>
-            <input type="text" name="P_age">
+            <input type="text" name="P_age" id="age">
         </div>
         <div class="infogroup">
             <label for="username">身份证号码：</label>
-            <input type="text" name="P_num">
+            <input type="text" name="P_num" id="num">
         </div>
         <div class="infogroup">
             <label for="username">过敏药物：</label>
-            <input type="text" name="P_med">
+            <input type="text" name="P_med" id="med">
         </div>
         <div class="infogroup">
             <label for="username">既往病史：</label>
-            <input type="text" name="P_ill">
+            <input type="text" name="P_ill" id="ill">
         </div>
         <div class="btngroup">
             <input type="submit" class="button" value="注册">

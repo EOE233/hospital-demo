@@ -27,7 +27,9 @@
                 <input type="radio" name="loginType" value="doctor" class="loginType">医生
                 <input type="radio" name="loginType" value="admin" class="loginType">管理员
                 <div id="btngroup">
-                    <input type="button" id="register" value="Register">
+                    <a th:href="@{/PatientRegister}">
+                        <button type="button" class="button">Register</button>
+                    </a>
                     <input type="submit" id="submit" value="Submit">
                 </div>
             </form>

@@ -77,8 +77,6 @@ public class AdminController {
         adminService.deleteDoctor(id);
         return "redirect:/AdminDoctor";
     }
-    //---
-
 
     /**
      * 科室管理模块
@@ -89,8 +87,6 @@ public class AdminController {
         model.addAttribute("offices", offices);
         return "Admin/OfficeInfo";
     }
-
-    //增加内容
 
     /**
      * 前往修改科室页面

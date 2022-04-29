@@ -14,8 +14,6 @@ import java.util.List;
 
 @Controller
 public class LoginController {
-
-
     @Autowired
     PatientService patientService;
     @Autowired
@@ -26,16 +24,8 @@ public class LoginController {
     SCHService schService;
     @Autowired
     AdminService adminService;
-
-
     /**
      * 登录验证
-     *
-     * @param loginType
-     * @param username
-     * @param password
-     * @param model
-     * @return
      */
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public String patientLogin(String loginType, String username, String password, Model model, HttpSession session) {
