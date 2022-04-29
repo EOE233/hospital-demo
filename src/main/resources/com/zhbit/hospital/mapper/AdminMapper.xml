@@ -103,5 +103,4 @@
         from administrator
         where M_id = #{id}
     </select>
-
 </mapper>

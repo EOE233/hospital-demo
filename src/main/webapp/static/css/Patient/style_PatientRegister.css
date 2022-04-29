@@ -11,42 +11,15 @@ body {
     background-image: linear-gradient(to bottom right, #bdbef8, #b9a3fd);
 }
 
-.leftdiv {
-    background-color: #fff;
-    height: 280px;
-    top: 20px;
-    position: relative;
-    width: 220px;
-    border-radius: 10px 0 0 10px;
-    text-align: center;
-}
-
-.leftdiv h1{
-    margin-top: 30px;
-}
-
-.leftdiv p {
-    font-size: 20px;
-    margin: 10px;
-}
-
 .rightdiv {
     background-color: #474a59;
-    height: 500px;
+    height: 740px;
     box-shadow: 0 0 40px 16px rgba(0, 0, 0, .2);
     color: #f1f1f2;
-    width: 500px;
+    width: 400px;
     border-radius: 10px 10px 10px 10px;
 }
 
-.rightdiv h2 {
-    margin-top: 20px;
-    margin-left: 30px;
-}
-
-.infogroup {
-    margin-left: 50px;
-}
 
 label {
     color: #c2c2c5;
@@ -68,30 +41,26 @@ label::before {
     background-image: linear-gradient(to right, #44ffff, #b888ff);
 }
 
-.interview {
-    overflow: scroll;
-    overflow-x: hidden;
-    height: 290px;
-    width: 400px;
-    background-color: #fff;
-    height: 400px;
-    border-radius: 0 10px 10px 0;
+input {
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+    font-style: 20px;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+    outline: none !important;
 }
 
-.interview h2 {
-    margin-left: 30px;
-    margin-top: 20px;
+.infogroup {
+    margin-left: 80px;
 }
 
-.interviewgroup {
-    position: relative;
-    margin-top: 10px;
-    margin-left: 30px;
+h2 {
+    margin-top: 30px;
+    margin-left: 50px;
 }
 
-.table {
-    width: 330px;
-}
 
 .button {
     outline: none;
@@ -106,31 +75,12 @@ label::before {
 }
 
 .button:hover {
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #000;
     background-color: rgba(173, 172, 172, 0.349);
 }
 
-#btngroup {
+.btngroup {
     display: flex;
     justify-content: space-around;
-}
-input {
-    background: transparent;
-    border: 0;
-    color: #f2f2f2;
-    font-style: 20px;
-    height: 30px;
-    line-height: 30px;
-    width: 90%;
-    outline: none !important;
-}
-
-.sexRadio {
-    width: 50px;
-    height: 15px;
-}
-
-.interview a {
-    margin-left: 40px;
 }

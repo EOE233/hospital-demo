@@ -24,4 +24,11 @@ public interface PatientService {
 
     boolean deletePatientById(int id);
 
+//    boolean registerPatient(String username, String password,
+//                            String name, String sex,
+//                            int age, String num,
+//                            String med, String ill);
+    boolean registerPatient(Patient patient);
+
+
 }

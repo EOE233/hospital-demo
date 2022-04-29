@@ -53,4 +53,15 @@ public class PatientController {
         model.addAttribute("interviews", interviews);
         return "Patient/PatientHome";
     }
+
+    @RequestMapping(value = "/PatientRegister")
+    public String toRegisterPatient() {
+        return "Patient/PatientRegister";
+    }
+
+    @RequestMapping(value = "/RegisterPatient")
+    public String registerPatient(Patient patient) {
+        patientService.registerPatient(patient);
+        return "index";
+    }
 }

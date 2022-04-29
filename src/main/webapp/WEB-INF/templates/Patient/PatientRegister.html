@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>患者注册</title>
+</head>
+<body>
+<link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientRegister.css}">
+<div class="rightdiv">
+    <h2>注册患者</h2>
+    <form th:action="@{/RegisterPatient}" method="post" name="registerform" onsubmit="return CheckPost();">
+        <div class="infogroup">
+            <label for="username">用户名：</label>
+            <input type="text" name="P_username" id="username">
+        </div>
+        <div class="infogroup">
+            <label for="username">密码：</label>
+            <input type="text" name="P_pwd" id="password">
+        </div>
+        <div class="infogroup">
+            <label for="username">姓名：</label>
+            <input type="text" name="P_name" id="name">
+        </div>
+        <div class="infogroup">
+            <label for="username">性别</label>
+            <input type="text" name="P_sex" id="sex">
+        </div>
+        <div class="infogroup">
+            <label for="username">年龄</label>
+            <input type="text" name="P_age" id="age">
+        </div>
+        <div class="infogroup">
+            <label for="username">身份证号码：</label>
+            <input type="text" name="P_num" id="num" pattern="^([0-9]){7,18}(x|X)?$">
+        </div>
+        <div class="infogroup">
+            <label for="username">过敏药物：</label>
+            <input type="text" name="P_med" id="med">
+        </div>
+        <div class="infogroup">
+            <label for="username">既往病史：</label>
+            <input type="text" name="P_ill" id="ill">
+        </div>
+        <div class="btngroup">
+            <input type="submit" class="button" value="注册">
+            <input type="reset" class="button" value="重置">
+        </div>
+    </form>
+</div>
+
+<script>
+    function CheckPost()
+    {
+        if (registerform.username.value=="")
+        {
+            alert("请填写用户名");
+            registerform.username.focus();
+            return false;
+        }
+        if (registerform.password.value=="")
+        {
+            alert("请填写密码");
+            registerform.password.focus();
+            return false;
+        }
+        if (registerform.name.value=="")
+        {
+            alert("请填写姓名");
+            registerform.name.focus();
+            return false;
+        }
+        if (registerform.sex.value=="")
+        {
+            alert("请填写性别");
+            registerform.sex.focus();
+            return false;
+        }
+        if (registerform.age.value=="")
+        {
+            alert("请填写年龄");
+            registerform.age.focus();
+            return false;
+        }
+        if (registerform.num.value=="")
+        {
+            alert("请填写身份证号码");
+            registerform.num.focus();
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+

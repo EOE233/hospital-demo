@@ -44,10 +44,6 @@ body {
     margin-left: 30px;
 }
 
-.infogroup {
-    margin-left: 50px;
-}
-
 label {
     color: #c2c2c5;
     display: block;
@@ -80,10 +76,17 @@ label::before {
     margin-top: 20px;
 }
 
+.infogroup {
+    margin-left: 50px;
+}
+
 .interviewgroup {
+    overflow: scroll;
+    overflow-x: hidden;
     position: relative;
     margin-top: 10px;
     margin-left: 30px;
+    height: 290px;
 }
 
 .table {
@@ -130,4 +133,9 @@ input {
 
 .interview a {
     margin-left: 40px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-image: linear-gradient(to right, #44ffff, #b888ff);
 }
