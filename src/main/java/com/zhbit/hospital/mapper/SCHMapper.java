@@ -18,4 +18,6 @@ public interface SCHMapper {
 
     boolean updateSCH(@Param("sch") SCH sch);
 
+    SCH getSCHByTimeAndD_id(@Param("date") String date, @Param("time") String time, @Param("id") int id);
+
 }

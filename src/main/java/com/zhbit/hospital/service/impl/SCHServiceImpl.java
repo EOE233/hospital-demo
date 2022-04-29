@@ -28,6 +28,11 @@ public class SCHServiceImpl implements SCHService {
     }
 
     @Override
+    public SCH getSCHByTimeAndD_id(String date, String time, int id) {
+        return schMapper.getSCHByTimeAndD_id(date, time, id);
+    }
+
+    @Override
     public List<SCH> getSCHByD_id(int id) {
         return schMapper.getSCHByD_id(id);
     }

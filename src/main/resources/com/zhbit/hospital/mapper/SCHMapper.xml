@@ -5,11 +5,12 @@
 <mapper namespace="com.zhbit.hospital.mapper.SCHMapper">
     <update id="updateSCH">
         update sch
-        set SUR_id = #{sch.SUR_id},
-            SCH_date = #{sch.SCH_date},
-            SCH_time = #{sch.SCH_time},
-            SCH_size = #{sch.SCH_size},
+        set SUR_id     = #{sch.SUR_id},
+            SCH_date   = #{sch.SCH_date},
+            SCH_time   = #{sch.SCH_time},
+            SCH_size   = #{sch.SCH_size},
             SCH_booked = #{sch.SCH_booked}
+        where SCH_id = #{sch.SCH_id}
     </update>
 
     <!-- List<SCH> getSCHByD_id (@Param("id") int id); -->
@@ -28,6 +29,15 @@
         select *
         from sch
         where SCH_id = #{id}
+    </select>
+
+    <!-- SCH getSCHByTimeAndD_id(@Param("date") String date, @Param("time") String time, @Param("id") int id); -->
+    <select id="getSCHByTimeAndD_id" resultType="com.zhbit.hospital.bean.SCH">
+        select *
+        from sch
+        where SCH_date = #{date}
+          and SCH_time = #{time}
+          and D_id = #{id}
     </select>
 
 </mapper>

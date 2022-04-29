@@ -11,26 +11,27 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{static/css/style_AdminUpdate.css}">
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_InterviewAdminUpdate.css}">
 <div class="rightdiv">
   <h2>预约信息管理</h2>
   <table>
     <form>
+      <input type="hidden" name="I_id" th:value="${interview.I_id}">
       <div class="infogroup">
-        <label for="p_id">患者id</label>
-        <input type="text" name="P_id" id="p_id">
+        <label for="P_id">患者id</label>
+        <input type="text" name="P_id" id="P_id" th:value="${interview.P_id}">
       </div>
       <div class="infogroup">
         <label for="i_date">预约日期</label>
-        <input type="text" name="I_date" id="i_date">
+        <input type="text" name="I_date" id="i_date" th:value="${interview.I_date}">
       </div>
       <div class="infogroup">
         <label for="i_time">预约时间</label>
-        <input type="text" name="I_time" id="i_time">
+        <input type="text" name="I_time" id="i_time" th:value="${interview.I_time}">
       </div>
       <div class="infogroup">
         <label for="d_id">医生id</label>
-        <input type="text" name="D_id" id="d_id">
+        <input type="text" name="D_id" id="d_id" th:value="${interview.D_id}">
       </div>
       <div class="btngroup">
         <input type="submit" value="修改" class="button">

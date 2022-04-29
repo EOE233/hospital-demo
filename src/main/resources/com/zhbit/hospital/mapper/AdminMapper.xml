@@ -37,13 +37,13 @@
         where SUR_id = #{id}
     </delete>
     <delete id="deleteInterview">
-        select *
+        delete
         from interview
         where I_id = #{id}
     </delete>
 
     <delete id="deleteSCH">
-        select *
+        delete
         from sch
         where SCH_id = #{id}
     </delete>

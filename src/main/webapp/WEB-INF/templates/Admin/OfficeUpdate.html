@@ -11,22 +11,23 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{static/css/style_AdminUpdate.css}">
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_OfficeAdminUpdate.css}">
 <div class="rightdiv">
   <h2>科室信息管理</h2>
   <table>
     <form>
+      <input type="hidden" name="O_id" th:value="${office.O_id}">
       <div class="infogroup">
         <label for="o_name">科室名称</label>
-        <input type="text" name="O_name" id="o_name">
+        <input type="text" name="O_name" id="o_name" th:value="${office.O_name}">
       </div>
       <div class="infogroup">
         <label for="o_des">科室描述</label>
-        <input type="text" name="O_des" id="o_des">
+        <input type="text" name="O_des" id="o_des" th:value="${office.O_dex}">
       </div>
       <div class="infogroup">
         <label for="o_site">科室地址</label>
-        <input type="text" name="O_site" id="o_site">
+        <input type="text" name="O_site" id="o_site" th:value="${office.O_site}">
       </div>
       <div class="btngroup">
         <input type="submit" value="修改" class="button">

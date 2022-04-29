@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Surgery {
 
-    private int SuR_id;
+    private int SUR_id;
     private int O_id;
     private String  SUR_site;
     private String SUR_mana;
@@ -13,19 +13,19 @@ public class Surgery {
     @Override
     public String toString() {
         return "Surgery{" +
-                "SuR_id=" + SuR_id +
+                "SuR_id=" + SUR_id +
                 ", O_id=" + O_id +
                 ", SUR_site='" + SUR_site + '\'' +
                 ", SUR_mana='" + SUR_mana + '\'' +
                 '}';
     }
 
-    public int getSuR_id() {
-        return SuR_id;
+    public int getSUR_id() {
+        return SUR_id;
     }
 
-    public void setSuR_id(int suR_id) {
-        SuR_id = suR_id;
+    public void setSUR_id(int suR_id) {
+        SUR_id = suR_id;
     }
 
     public int getO_id() {
@@ -53,7 +53,7 @@ public class Surgery {
     }
 
     public Surgery(int suR_id, int o_id, String SUR_site, String SUR_mana) {
-        SuR_id = suR_id;
+        SUR_id = suR_id;
         O_id = o_id;
         this.SUR_site = SUR_site;
         this.SUR_mana = SUR_mana;

@@ -170,6 +170,18 @@ public class AdminController {
     }
     @GetMapping("/AdminDeleteInterview/{id}")
     public String deleteInterviewAdmin(@PathVariable("id") int id){
+        Interview interview = interviewService.getInterviewById(id);
+        SCH sch = schService.getSCHByTimeAndD_id(interview.getI_date(), interview.getI_time(), interview.getD_id());
+        System.out.println(sch);
+        int sch_booked = sch.getSCH_booked();
+        int sch_size = sch.getSCH_size();
+        if (sch_booked > 0) {
+            sch_booked--;
+            sch.setSCH_booked(sch_booked);
+            schService.updateSCH(sch);
+        } else {
+            return "ERROR";
+        }
         adminService.deleteInterview(id);
         return "redirect:/AdminInterview";
     }
@@ -183,13 +195,13 @@ public class AdminController {
         model.addAttribute("schs", schs);
         return "Admin/SCHInfo";
     }
-    @GetMapping("AdminUpdateSCH")
+    @GetMapping("/AdminUpdateSCH/{id}")
     public String toUpdateSCH(Model model, @PathVariable("id") int id){
         SCH sch = schService.getSCHById(id);
         model.addAttribute("sch", sch);
         return "Admin/SCHUpdate";
     }
-    @PutMapping("/AdminDeleteSCH/{id}")
+    @PutMapping("/AdminDeleteSCH")
     public String updateSCH(SCH sch){
         schService.updateSCH(sch);
         return "redirect:/AdminSCH";

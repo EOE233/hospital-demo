@@ -11,26 +11,23 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{static/css/style_AdminUpdate.css}">
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_SurgeryAdminUpdate.css}">
 <div class="rightdiv">
   <h2>诊室信息管理</h2>
   <table>
     <form>
-      <div class="infogroup">
-        <label for="sur_id">诊室id</label>
-        <input type="text" name="SUR_id" id="sur_id">
-      </div>
+      <input type="hidden" th:value="${surgery.SUR_id}">
       <div class="infogroup">
         <label for="o_id">所属科室id</label>
-        <input type="text" name="O_id" id="o_id">
+        <input type="text" name="O_id" id="o_id" th:value="${surgery.O_id}">
       </div>
       <div class="infogroup">
         <label for="sur_site">诊室地址</label>
-        <input type="text" name="SUR_site" id="sur_site">
+        <input type="text" name="SUR_site" id="sur_site" th:value="${surgery.SUR_site}">
       </div>
       <div class="infogroup">
         <label for="sur_mana">诊室负责人</label>
-        <input type="text" name="SUR_mana" id="sur_mana">
+        <input type="text" name="SUR_mana" id="sur_mana" th:value="${surgery.SUR_mana}">
       </div>
       <div class="btngroup">
         <input type="submit" value="修改" class="button">

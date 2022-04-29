@@ -11,34 +11,35 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{static/css/style_AdminUpdate.css}">
+<link rel="stylesheet" th:href="@{/static/css/Admin/style_SCHAdminUpdate.css}">
 <div class="rightdiv">
   <h2>排班信息管理</h2>
   <table>
     <form>
+      <input type="hidden" name="SCH_id" th:value="${sch.SCH_id}">
       <div class="infogroup">
         <label for="d_id">排班医生id</label>
-        <input type="text" name="D_id" id="d_id">
+        <input type="text" name="D_id" id="d_id" th:value="${sch.D_id}">
       </div>
       <div class="infogroup">
         <label for="sur_id">排班诊室</label>
-        <input type="text" name="SUR_id" id="sur_id">
+        <input type="text" name="SUR_id" id="sur_id" th:value="${sch.SUR_id}">
       </div>
       <div class="infogroup">
         <label for="sch_date">排班日期</label>
-        <input type="text" name="SCH_date" id="sch_date">
+        <input type="text" name="SCH_date" id="sch_date" th:value="${sch.SCH_date}">
       </div>
       <div class="infogroup">
         <label for="sch_time">排班时间</label>
-        <input type="text" name="SCH_time" id="sch_time">
+        <input type="text" name="SCH_time" id="sch_time" th:value="${sch.SCH_time}">
       </div>
       <div class="infogroup">
         <label for="sch_size">预约人数上限</label>
-        <input type="text" name="SCH_size" id="sch_size">
+        <input type="text" name="SCH_size" id="sch_size" th:value="${sch.SCH_size}">
       </div>
       <div class="infogroup">
         <label for="sch_booked">预约人数</label>
-        <input type="text" name="SCH_booked" id="sch_booked">
+        <input type="text" name="SCH_booked" id="sch_booked" th:value="${sch.SCH_booked}">
       </div>
       <div class="btngroup">
         <input type="submit" value="修改" class="button">
