@@ -1,6 +1,7 @@
 package com.zhbit.hospital.service;
 
 import com.zhbit.hospital.bean.Interview;
+import com.zhbit.hospital.bean.SCH;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -20,4 +21,9 @@ public interface InterviewService {
 
     boolean updateInterview(Interview interview);
 
+    boolean addInterview(int P_id, SCH sch);
+
+    boolean delInterview(int id);
+
+    List<SCH> getSCHByDateOrTime(String searchDate, String searchTime);
 }

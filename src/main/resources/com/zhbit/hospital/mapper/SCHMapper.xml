@@ -40,4 +40,23 @@
           and D_id = #{id}
     </select>
 
+<!--    void addInterviewWithUpdateSCHBooked(int sch_id, int sch_booked);
+    伴随着预约信息添加，已预约人数加1
+-->
+    <update id="addInterviewWithUpdateSCHBooked">
+        update sch
+        set SCH_booked = #{SCH_booked}
+        where SCH_id = #{SCH_id}
+    </update>
+
+<!--    List<SCH> getSCHByDateOrTime(String searchDate, String searchTime);-->
+    <select id="getSCHByDateOrTime" resultType="com.zhbit.hospital.bean.SCH">
+        select * from sch where 1=1
+        <if test="SCH_Date != null and SCH_Date !=''">
+            and SCH_Date = #{SCH_Date}
+        </if>
+        <if test="SCH_Time != null and SCH_Time !=''">
+            and SCH_Time = #{SCH_Time}
+        </if>
+    </select>
 </mapper>
