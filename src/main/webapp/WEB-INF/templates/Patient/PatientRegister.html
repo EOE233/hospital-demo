@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Info</title>
+    <link rel="stylesheet" th:href="@{/static/css/Patient/style_PatientRegister.css}">
+</head>
+<body>
+<div class="rightdiv">
+    <h2>注册患者</h2>
+    <form action="">
+        <input type="hidden" name="P_id" value="null">
+        <div class="infogroup">
+            <label for="username">用户名：</label>
+            <input type="text" name="P_username" id="username">
+        </div>
+        <div class="infogroup">
+            <label for="username">密码：</label>
+            <input type="text" name="P_pwd">
+        </div>
+        <div class="infogroup">
+            <label for="username">姓名：</label>
+            <input type="text" name="P_name">
+        </div>
+        <div class="infogroup">
+            <label for="username">性别</label>
+            <input type="text" name="P_sex">
+        </div>
+        <div class="infogroup">
+            <label for="username">年龄</label>
+            <input type="text" name="P_age">
+        </div>
+        <div class="infogroup">
+            <label for="username">身份证号码：</label>
+            <input type="text" name="P_num">
+        </div>
+        <div class="infogroup">
+            <label for="username">过敏药物：</label>
+            <input type="text" name="P_med">
+        </div>
+        <div class="infogroup">
+            <label for="username">既往病史：</label>
+            <input type="text" name="P_ill">
+        </div>
+        <div class="btngroup">
+            <input type="submit" class="button" value="注册">
+            <input type="reset" class="button" value="重置">
+        </div>
+    </form>
+</div>
+</body>
+</html>
