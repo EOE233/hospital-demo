@@ -69,13 +69,15 @@ label::before {
 }
 
 .interview {
-    overflow: scroll;
-    overflow-x: hidden;
     height: 290px;
-    width: 400px;
+    width: 450px;
     background-color: #fff;
     height: 400px;
     border-radius: 0 10px 10px 0;
+}
+
+#addinterview {
+    margin-left: 40px;
 }
 
 .interview h2 {
@@ -84,13 +86,17 @@ label::before {
 }
 
 .interviewgroup {
+    overflow-x: hidden;
+    overflow-y: scroll;
     position: relative;
+    height: 280px;
+    width:370px;
     margin-top: 10px;
     margin-left: 30px;
 }
 
 .table {
-    width: 330px;
+    width: 390px;
 }
 
 .button {
@@ -131,6 +137,7 @@ input {
     height: 15px;
 }
 
-.interview a {
-    margin-left: 40px;
+::-webkit-scrollbar {
+    width: 4px;
+    background-image: linear-gradient(to right, #44ffff, #b888ff);
 }
