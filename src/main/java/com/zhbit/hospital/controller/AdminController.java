@@ -2,14 +2,11 @@ package com.zhbit.hospital.controller;
 
 import com.zhbit.hospital.bean.*;
 import com.zhbit.hospital.service.*;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
-import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.List;
 
@@ -72,7 +69,7 @@ public class AdminController {
         return "redirect:/AdminDoctor";
     }
 
-    @RequestMapping(value = "/AdminDeleteDocotr/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/AdminDeleteDoctor/{id}", method = RequestMethod.GET)
     public String deleteDoctorAdmin(@PathVariable("id") int id) {
         adminService.deleteDoctor(id);
         return "redirect:/AdminDoctor";

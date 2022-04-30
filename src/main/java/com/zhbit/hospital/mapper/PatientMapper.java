@@ -22,9 +22,5 @@ public interface PatientMapper {
     /**
      * 注册患者
      */
-//    boolean registerPatient(@Param("username") String username, @Param("password") String password,
-//                            @Param("name") String name, @Param("sex") String sex,
-//                            @Param("age") int age, @Param("num") String num,
-//                            @Param("med") String med, @Param("ill") String ill);
     boolean registerPatient(@Param("patient") Patient patient);
 }

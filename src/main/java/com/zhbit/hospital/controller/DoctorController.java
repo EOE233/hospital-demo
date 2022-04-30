@@ -21,11 +21,17 @@ public class DoctorController {
     @Autowired
     SCHService schService;
 
+    /**
+     * 跳转到更改医生信息页面
+     */
     @RequestMapping(value = "/DoctorUpdate", method = RequestMethod.GET)
     public String toUpdate() {
         return "Doctor/DoctorUpdate";
     }
 
+    /**
+     * 更新医生信息后跳回医生主页
+     */
     @RequestMapping(value = "/Doctor", method = RequestMethod.PUT)
     public String updateDoctor(Doctor doctor, HttpSession session, Model model) {
         //更新医生信息

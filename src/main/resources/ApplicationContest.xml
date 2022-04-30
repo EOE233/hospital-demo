@@ -65,5 +65,53 @@
         <property name="basePackage" value="com.zhbit.hospital.mapper"/>
     </bean>
 
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <!-- 医生页面拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截器拦截的路径,/**可以拦截多级目录 -->
+            <mvc:mapping path="/DoctorHome"/>
+            <mvc:mapping path="/DoctorUpdate"/>
+            <!-- 配置排除拦截的路径 -->
+            <mvc:exclude-mapping path="/Login"/>
+            <!-- 将拦截器对象注入容器 -->
+            <bean class="com.zhbit.hospital.interceptor.DoctorInterceptor"></bean>
+        </mvc:interceptor>
+        <!-- 管理员界面拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截器拦截的路径,/**可以拦截多级目录 -->
+            <mvc:mapping path="/AdminUpdate"/>
+            <mvc:mapping path="/Admin"/>
+            <mvc:mapping path="/AdminDoctor"/>
+            <mvc:mapping path="/AdminUpdateDoctor/**"/>
+            <mvc:mapping path="/AdminDeleteDoctor/**"/>
+            <mvc:mapping path="/AdminOffice"/>
+            <mvc:mapping path="/AdminUpdateOffice/**"/>
+            <mvc:mapping path="/AdminDeleteOffice/**"/>
+            <mvc:mapping path="/AdminSurgery"/>
+            <mvc:mapping path="/AdminUpdateSurgery/**"/>
+            <mvc:mapping path="/AdminDeleteSurgery/**"/>
+            <mvc:mapping path="/AdminInterview"/>
+            <mvc:mapping path="/AdminSCH"/>
+            <mvc:mapping path="/AdminPatient"/>
+
+            <!-- 配置排除拦截的路径 -->
+            <mvc:exclude-mapping path="/Login"/>
+            <!-- 将拦截器对象注入容器 -->
+            <bean class="com.zhbit.hospital.interceptor.AdminInterceptor"></bean>
+        </mvc:interceptor>
+
+        <!-- 患者界面拦截器 -->
+        <mvc:interceptor>
+            <!-- 配置拦截器拦截的路径,/**可以拦截多级目录 -->
+            <mvc:mapping path="/PatientUpdate"/>
+            <mvc:mapping path="/PatientHome"/>
+            <mvc:mapping path="/RegisterPatient"/>
+            <!-- 配置排除拦截的路径 -->
+            <mvc:exclude-mapping path="/Login"/>
+            <!-- 将拦截器对象注入容器 -->
+            <bean class="com.zhbit.hospital.interceptor.PatientInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
