@@ -14,32 +14,34 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
-<link rel="stylesheet" th:href="@{static/css/Admin/style_AdminInfo.css}">
+<link rel="stylesheet" th:href="@{/static/css/Patient/style.css}">
 <div class="rightdiv">
     <div class="head">
-<!--        <h2>添加预约信息</h2><br/>-->
-        <table class="table">
-            <form th:action="@{/SCH}" method="post">
-                <tr>
-                    <td>
-                        预约日期：<input type="date" name="searchDate">
-                    </td>
-                    <td>
-                        预约时间：<input type="text" name="searchTime" list="searchTimeList">
-                        <datalist id="searchTimeList">
-                            <option>上午</option>
-                            <option>下午</option>
-                        </datalist>
-                    </td>
-                    <td>
-                        <input type="submit" value="查询">
-                    </td>
-                </tr>
-            </form>
-        </table>
-        <a th:href="@{/PatientHome}">
-            <button type="button" class="button">返回</button>
-        </a>
+        <!--        <h2>添加预约信息</h2><br/>-->
+        <div class="shell1">
+            <table>
+                <form th:action="@{/SCH}" method="post">
+                    <tr>
+                        <td>
+                            预约日期：<input type="date" name="searchDate" class="search">
+                        </td>
+                        <td>
+                            预约时间：<input type="text" name="searchTime" list="searchTimeList" class="search">
+                            <datalist id="searchTimeList">
+                                <option>上午</option>
+                                <option>下午</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="submit" value="查询" class="button" id="search">
+                        </td>
+                    </tr>
+                </form>
+            </table>
+            <a th:href="@{/PatientHome}">
+                <button type="button" class="button">返回</button>
+            </a>
+        </div>
     </div>
     <div class="shell">
         <table class="table">
