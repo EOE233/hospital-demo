@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加预约信息</title>
+</head>
+<body>
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{static/css/Admin/style_AdminInfo.css}">
+<div class="rightdiv">
+    <div class="head">
+<!--        <h2>添加预约信息</h2><br/>-->
+        <table class="table">
+            <form th:action="@{/SCH}" method="post">
+                <tr>
+                    <td>
+                        预约日期：<input type="date" name="searchDate">
+                    </td>
+                    <td>
+                        预约时间：<input type="text" name="searchTime" list="searchTimeList">
+                        <datalist id="searchTimeList">
+                            <option>上午</option>
+                            <option>下午</option>
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="submit" value="查询">
+                    </td>
+                </tr>
+            </form>
+        </table>
+        <a th:href="@{/PatientHome}">
+            <button type="button" class="button">返回</button>
+        </a>
+    </div>
+    <div class="shell">
+        <table class="table">
+            <tr>
+                <th>预约日期</th>
+                <th>预约时间</th>
+                <th>医生</th>
+                <th>所在诊室</th>
+                <th>可预约人数</th>
+                <th>已预约人数</th>
+                <th colspan="2">操作</th>
+            </tr>
+            <tr th:each="sch : ${schs}">
+                <form action="Interview" method="post">
+                    <input type="hidden" name="SCH_id" th:value="${sch.SCH_id}">
+                    <input type="hidden" name="SCH_date" th:value="${sch.SCH_date}">
+                    <td th:text="${sch.SCH_date}"></td>
+                    <input type="hidden" name="SCH_time" th:value="${sch.SCH_time}">
+                    <td th:text="${sch.SCH_time}"></td>
+                    <input type="hidden" name="D_id" th:value="${sch.D_id}">
+                    <td th:text="${sch.D_id}"></td>
+                    <input type="hidden" name="SUR_id" th:value="${sch.SUR_id}">
+                    <td th:text="${sch.SUR_id}"></td>
+                    <input type="hidden" name="SCH_size" th:value="${sch.SCH_size}">
+                    <td th:text="${sch.SCH_size}"></td>
+                    <input type="hidden" name="SCH_booked" th:value="${sch.SCH_booked}">
+                    <td th:text="${sch.SCH_booked}"></td>
+                    <td>
+                        <input type="submit" value="添加预约">
+                    </td>
+                </form>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

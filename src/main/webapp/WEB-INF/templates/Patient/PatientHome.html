@@ -39,7 +39,7 @@
 </div>
 <div class="interview">
     <h2>预约信息</h2>
-    <a href="">添加预约信息</a>
+    <a th:href="@{/InterviewAdd}">添加预约信息</a>
     <div class="interviewgroup">
         <table class="table">
             <tr>
@@ -52,7 +52,9 @@
                 <td th:text="${interview.I_date}"></td>
                 <td th:text="${interview.I_time}"></td>
                 <td th:text="${interview.D_id}"></td>
-                <td>删除 修改</td>
+                <td>
+                    <a th:href="@{'/DelInterview/'+${interview.I_id}}">取消预约</a>
+                </td>
             </tr>
         </table>
     </div>

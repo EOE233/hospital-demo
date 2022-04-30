@@ -35,4 +35,18 @@
         from interview
         where I_id = #{id}
     </select>
+
+<!--    boolean addInterview(int logined_user, String sch_date, String sch_time, int d_id);-->
+    <insert id="addInterview">
+        insert into interview values (
+        null,#{P_id},#{I_date},#{I_time},#{D_id}
+        )
+    </insert>
+
+<!--    boolean delInterview(int id);-->
+    <delete id="delInterview">
+        delete
+        from interview
+        where I_id = #{I_id}
+    </delete>
 </mapper>

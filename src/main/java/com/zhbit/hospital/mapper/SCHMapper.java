@@ -1,6 +1,5 @@
 package com.zhbit.hospital.mapper;
 
-import com.zhbit.hospital.bean.Doctor;
 import com.zhbit.hospital.bean.SCH;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,4 +19,7 @@ public interface SCHMapper {
 
     SCH getSCHByTimeAndD_id(@Param("date") String date, @Param("time") String time, @Param("id") int id);
 
+    void addInterviewWithUpdateSCHBooked(@Param("SCH_id") int SCH_id, @Param("SCH_booked") int SCH_booked);
+
+    List<SCH> getSCHByDateOrTime(@Param("SCH_Date") String searchDate,@Param("SCH_Time") String searchTime);
 }
