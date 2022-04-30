@@ -112,3 +112,12 @@ label::before {
     color: #000;
     background-color: rgba(173, 172, 172, 0.349);
 }
+
+a {
+    height: 35px;
+    margin-top: 40px;
+}
+
+#register {
+    margin-top: 0px;
+}
